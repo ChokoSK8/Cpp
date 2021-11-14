@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:36:19 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/12 20:07:43 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/13 12:53:58 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class	Contact
 		std::string	darkest_secret;
 
 	public :
+		Contact();
+		virtual ~Contact();
+
 		void	init_contact();
 		void	setFirstName();
 		void	setLastName();

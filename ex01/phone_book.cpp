@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:32:16 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/12 18:48:14 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/13 13:02:37 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	Phone_book::search_contact(void)
 		counter = 0;
 		while (counter < this->n_contact)
 		{
-			print_string(this->contact[counter]->getFirstName());
-			print_string(this->contact[counter]->getLastName());
-			print_string(this->contact[counter]->getNickname());
-			print_string(this->contact[counter]->getPhoneNumber());
-			print_last_string(this->contact[counter]->getDarkestSecret());
+			print_string(this->contact[counter].getFirstName());
+			print_string(this->contact[counter].getLastName());
+			print_string(this->contact[counter].getNickname());
+			print_string(this->contact[counter].getPhoneNumber());
+			print_last_string(this->contact[counter].getDarkestSecret());
 			counter++;
 		}
 	}
@@ -47,12 +47,12 @@ void	Phone_book::add_contact(void)
 	contact.init_contact();
 	if (this->n_contact < 8)
 	{
-		this->contact[n_contact] = &contact;
+		this->contact[n_contact] = contact;
 		n_contact++;
 	}
 	else
 	{
-		this->contact[0] = &contact;
+		this->contact[0] = contact;
 		n_contact = 1;
 	}
 }

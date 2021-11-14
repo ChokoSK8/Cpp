@@ -6,11 +6,13 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 17:58:39 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/12 19:55:21 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/13 13:06:42 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phone_book.h"
+#include "Phone_book.hpp"
+#include "Contact.hpp"
 
 int	main()
 {

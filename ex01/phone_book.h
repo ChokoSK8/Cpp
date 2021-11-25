@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 18:13:27 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/13 13:06:19 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/25 12:46:53 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,19 @@ void	search_contact(void);
 
 void	add_contact(void);
 
+void	ask_for_index(void);
+
 void	init_contact(void);
 
-void	setFirstName();
+void	setFirstName(void);
 
-void	setLastName();
+void	setLastName(void);
 
-void	setNickname();
+void	setNickname(void);
+
+void	setPhoneNumber(void);
+
+void	setDarkestSecret(void);
 
 std::string	getFirstName(void);
 
@@ -47,11 +53,9 @@ std::string	getPhoneNumber(void);
 
 std::string	getDarkestSecret(void);
 
-void	setPhoneNumber();
-
-void	setDarkestSecret();
-
 void	print_string(std::string str);
 
 void	print_last_string(std::string str);
+
+void	print_contact(Contact contact);
 #endif

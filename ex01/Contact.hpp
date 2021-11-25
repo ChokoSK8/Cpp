@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:36:19 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/13 12:53:58 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/25 12:09:02 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Contact
 
 	public :
 		Contact();
-		virtual ~Contact();
+		~Contact();
 
 		void	init_contact();
 		void	setFirstName();

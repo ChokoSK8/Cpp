@@ -6,19 +6,27 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:46:13 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/13 12:30:42 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/25 12:09:27 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phone_book.h"
 
-void	Contact::init_contact(void)
+Contact::Contact()
 {
-	this->setFirstName();
-	this->setLastName();
-	this->setNickname();
-	this->setPhoneNumber();
-	this->setDarkestSecret();
+}
+
+Contact::~Contact()
+{
+}
+
+void	Contact::init_contact()
+{
+	setFirstName();
+	setLastName();
+	setNickname();
+	setPhoneNumber();
+	setDarkestSecret();
 }
 
 void	Contact::setFirstName()

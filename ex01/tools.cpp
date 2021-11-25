@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 17:53:32 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/25 13:07:18 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/25 15:13:23 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	print_string(std::string str)
 {
 	if (str.size() <= 10)
 	{
-		std::cout << std::setw(10);
-		std::cout << str + " | ";
+		std::cout << std::setw(11);
+		std::cout << str + "|";
 	}
 	else
 	{
 		std::cout << str.substr(0, 9);
-		std::cout << ". | ";
+		std::cout << ".|";
 	}
 }
 

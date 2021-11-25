@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:46:13 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/25 12:09:27 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/25 15:08:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	Contact::setFirstName()
 {
 	std::string	str;
 
-	std::cout << "Enter first name : ";
+	std::cout << "Entrez first name : ";
 	std::cin >> str;
 	this->first_name = str;
 }
@@ -42,7 +42,7 @@ void	Contact::setLastName()
 {
 	std::string	str;
 
-	std::cout << "Enter last name : ";
+	std::cout << "Entrez last name : ";
 	std::cin >> str;
 	this->last_name = str;
 }
@@ -51,7 +51,7 @@ void	Contact::setNickname()
 {
 	std::string	str;
 
-	std::cout << "Enter nickname : ";
+	std::cout << "Entrez nickname : ";
 	std::cin >> str;
 	this->nickname = str;
 }
@@ -60,7 +60,7 @@ void	Contact::setPhoneNumber()
 {
 	std::string	str;
 
-	std::cout << "Enter phone number : ";
+	std::cout << "Entrez phone number : ";
 	std::cin >> str;
 	this->phone_number = str;
 }
@@ -69,7 +69,7 @@ void	Contact::setDarkestSecret()
 {
 	std::string	str;
 
-	std::cout << "Enter darkest secret : ";
+	std::cout << "Entrez darkest secret : ";
 	std::cin >> str;
 	this->darkest_secret = str;
 }

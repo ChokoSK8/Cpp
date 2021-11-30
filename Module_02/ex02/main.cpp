@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 20:09:45 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/30 09:22:50 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/30 09:45:48 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int	main()
 		std::cout << "No" << std::endl;
 	std::cout << "Max between a and b is : " << a.max(b) << std::endl;
 	std::cout << "Min between a and b is : " << a.min(b) << std::endl;
+	std::cout << "Max between a and b is : " << Fixed::max(a, b) << std::endl;
+	std::cout << "Min between a and b is : " << Fixed::min(a, b) << std::endl;
 
 	return (0);
 }

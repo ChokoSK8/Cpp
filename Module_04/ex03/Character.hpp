@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 13:52:03 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 11:58:40 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/01 17:10:57 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/01 17:29:56 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <string>
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
 
-class	Animal
+class	Character: virtual public ICharacter
 {
 	protected:
-		std::string	_type;
+		std::string	_name;
+		AMateria	_inventory[4];
 
 	public:
-		Animal(void);
-		Animal(std::string type);
-		~Animal(void);
-		virtual void	makeSound(void) const;
-		std::string	getType(void) const;
-		void		setType(std::string type);
+		Character(std::string name);
+		Character& operator=(const Character&);
 };
 #endif

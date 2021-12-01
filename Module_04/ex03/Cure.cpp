@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 13:52:03 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 11:58:40 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/01 16:37:48 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/01 17:42:40 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <string>
+#include "Cure.hpp"
+#include <iostream>
 
-class	Animal
+Cure::Cure(void):AMateria("cure")
 {
-	protected:
-		std::string	_type;
+	std::cout << "Cure default constructor called" << std::endl;
+}
 
-	public:
-		Animal(void);
-		Animal(std::string type);
-		~Animal(void);
-		virtual void	makeSound(void) const;
-		std::string	getType(void) const;
-		void		setType(std::string type);
-};
-#endif
+Cure::~Cure(void)
+{
+	std::cout << "Cure destructor called" << std::endl;
+}
+
+void	Cure::use(ICharactere& target)
+{
+	std::cout << "   * heals " << target.getName()
+		<< "'s wounds *" << std::endl;
+}

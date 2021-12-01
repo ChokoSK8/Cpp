@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 13:52:03 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 11:58:40 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/01 11:47:30 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/01 12:29:57 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <string>
+#include "Dog.hpp"
+#include <iostream>
 
-class	Animal
+Dog::Dog(void):Animal("dog")
 {
-	protected:
-		std::string	_type;
+	std::cout << "Dog default constructor called" << std::endl;
+}
 
-	public:
-		Animal(void);
-		Animal(std::string type);
-		~Animal(void);
-		virtual void	makeSound(void) const;
-		std::string	getType(void) const;
-		void		setType(std::string type);
-};
-#endif
+Dog::~Dog(void)
+{
+	std::cout << "Dog destructor called" << std::endl;
+}
+
+void	Dog::makeSound(void) const
+{
+	std::cout << "The " << getType() << " says : Wouf Wouf !" << std::endl;
+}

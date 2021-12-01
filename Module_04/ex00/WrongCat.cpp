@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 13:52:03 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 11:58:40 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/01 12:20:11 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/01 12:30:32 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <string>
+#include "WrongCat.hpp"
+#include <iostream>
 
-class	Animal
+WrongCat::WrongCat(void):WrongAnimal("cat")
 {
-	protected:
-		std::string	_type;
+	std::cout << "WrongCat default constructor called" << std::endl;
+}
 
-	public:
-		Animal(void);
-		Animal(std::string type);
-		~Animal(void);
-		virtual void	makeSound(void) const;
-		std::string	getType(void) const;
-		void		setType(std::string type);
-};
-#endif
+WrongCat::~WrongCat(void)
+{
+	std::cout << "WrongCat default destructor called" << std::endl;
+}
+
+void	WrongCat::makeSound(void) const
+{
+	std::cout << "The " << getType() << " says : Wouf Wouf !" << std::endl;
+}

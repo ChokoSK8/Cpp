@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 13:52:03 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 11:58:40 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/01 17:32:58 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/01 17:38:38 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <string>
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
 
-class	Animal
+int	main()
 {
-	protected:
-		std::string	_type;
+	const Character*	naru = new Character("Uzumaki");
+	const Character*	mada = new Character("Madara");
+	const Ice*	ice_1 = new Ice();
 
-	public:
-		Animal(void);
-		Animal(std::string type);
-		~Animal(void);
-		virtual void	makeSound(void) const;
-		std::string	getType(void) const;
-		void		setType(std::string type);
-};
-#endif
+	hero->unequip(3);
+	hero->equip(2, ice_1);
+	hero->use(3, mada);
+	hero->use(2, mada);
+	delete naru;
+	delete mada;
+	delete ice_1;
+	return (0);
+}

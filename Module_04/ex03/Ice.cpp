@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 13:52:03 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 11:58:40 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/01 16:33:39 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/01 17:42:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-# include <string>
+#include "Ice.hpp"
+#include <iostream>
 
-class	Animal
+Ice::Ice(void):AMateria("ice")
 {
-	protected:
-		std::string	_type;
+	std::cout << "Ice default constructor called" << std::endl;
+}
 
-	public:
-		Animal(void);
-		Animal(std::string type);
-		~Animal(void);
-		virtual void	makeSound(void) const;
-		std::string	getType(void) const;
-		void		setType(std::string type);
-};
-#endif
+Ice::~Ice(void)
+{
+	std::cout << "Ice destructor called" << std::endl;
+}
+
+void	Ice::use(ICharactere& target)
+{
+	std::cout << "   * shoots an ice bolt at " << target.getName()
+		<< " *" << std::endl;
+}

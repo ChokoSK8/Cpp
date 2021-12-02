@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:30:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/02 14:14:58 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 14:37:49 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@ Character::Character(void)
 
 Character::~Character(void)
 {
+	int	c = -1;
 	std::cout << "Charactere destructor called" << std::endl;
+	while (++c < 4)
+	{
+		if (_available[c])
+			delete _inventory[c];
+	}
 }
 
 Character::Character(std::string name)

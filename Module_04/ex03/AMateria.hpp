@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 16:17:09 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/02 12:58:25 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 14:38:12 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	AMateria
 
 	public:
 		AMateria(std::string const& type);
+		virtual ~AMateria(void);
 
 		std::string const& getType() const;
 

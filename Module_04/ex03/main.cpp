@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:32:58 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/02 14:19:07 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 14:53:23 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ int	main()
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
+	std::cout << "hey" << std::endl;
 	me->equip(tmp);
+	std::cout << "hey" << std::endl;
 	tmp = src->createMateria("cure");
+	std::cout << "hey" << std::endl;
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);

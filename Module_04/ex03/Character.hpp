@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:10:57 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/02 12:29:39 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 14:15:22 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Character: virtual public ICharacter
 
 	public:
 		Character(void);
+		~Character(void);
 		Character(std::string name);
 		Character& operator=(const Character&);
 		std::string const & getName() const;

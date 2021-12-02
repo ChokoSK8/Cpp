@@ -1,6 +1,6 @@
 NAME	= battle
 
-SRCS	= AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp
+SRCS	= MateriaSource.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

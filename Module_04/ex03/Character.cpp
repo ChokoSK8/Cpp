@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:30:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/02 12:31:50 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 14:14:58 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ Character::Character(void)
 	std::cout << "Charactere default constructor called" << std::endl;
 	while (++c < 4)
 		this->_available[c] = 0;
+}
+
+Character::~Character(void)
+{
+	std::cout << "Charactere destructor called" << std::endl;
 }
 
 Character::Character(std::string name)

@@ -25,12 +25,11 @@ int	main()
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	std::cout << "hey" << std::endl;
 	me->equip(tmp);
-	std::cout << "hey" << std::endl;
+	delete tmp;
 	tmp = src->createMateria("cure");
-	std::cout << "hey" << std::endl;
 	me->equip(tmp);
+	delete tmp;
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);

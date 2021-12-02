@@ -26,7 +26,14 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::~MateriaSource(void)
 {
+	int	c = -1;
+
 	std::cout << "MateriaSource destructor called" << std::endl;
+	while (++c < 4)
+	{
+		if(_available[c])
+			delete _list[c];
+	}
 }
 
 void	MateriaSource::learnMateria(AMateria* materia)
@@ -38,6 +45,7 @@ void	MateriaSource::learnMateria(AMateria* materia)
 		if (!_available[c])
 		{
 			_list[c] = materia;
+			_available[c] = 1;
 			c = 4;
 		}
 	}

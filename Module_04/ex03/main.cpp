@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:32:58 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 17:38:38 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 12:32:33 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "ICharacter.hpp"
+#include <iostream>
 
 int	main()
 {
-	const Character*	naru = new Character("Uzumaki");
-	const Character*	mada = new Character("Madara");
-	const Ice*	ice_1 = new Ice();
+	Character*	naru = new Character("Uzumaki");
+	Character*	mada = new Character("Madara");
+	Ice*		ice_1 = new Ice();
 
-	hero->unequip(3);
-	hero->equip(2, ice_1);
-	hero->use(3, mada);
-	hero->use(2, mada);
+	naru->unequip(3);
+	naru->equip(ice_1);
+	naru->use(3, *mada);
+	naru->use(0, *mada);
 	delete naru;
 	delete mada;
 	delete ice_1;

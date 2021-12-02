@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 16:17:09 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 17:45:25 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 10:49:11 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define AMATERIA_HPP
 # include "ICharacter.hpp"
 # include <string>
+
+class	ICharacter;
 
 class	AMateria
 {

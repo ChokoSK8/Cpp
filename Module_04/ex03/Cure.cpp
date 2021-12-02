@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 16:37:48 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 17:42:40 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 11:06:11 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cure::~Cure(void)
 	std::cout << "Cure destructor called" << std::endl;
 }
 
-void	Cure::use(ICharactere& target)
+void	Cure::use(const ICharacter& target)
 {
 	std::cout << "   * heals " << target.getName()
 		<< "'s wounds *" << std::endl;

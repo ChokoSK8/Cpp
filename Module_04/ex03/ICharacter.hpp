@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 16:40:46 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 17:46:53 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/02 11:08:52 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 # include "AMateria.hpp"
 # include <string>
 
+class AMateria;
+
 class	ICharacter
 {
+	public:
 		virtual ~ICharacter() {}
 		virtual std::string const & getName() const = 0;
 		virtual void equip(AMateria* m) = 0;

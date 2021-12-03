@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:18:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/03 16:15:46 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/03 19:13:12 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
 {
+	std::cout << "Bureaucrat setParam constructor called" << std::endl;
 	try
 	{
 		_name = name;
@@ -28,6 +29,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 
 Bureaucrat::~Bureaucrat(void) throw()
 {
+	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what(void) const throw()
@@ -52,12 +54,12 @@ int	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::increaseGrade(void)
 {
-	_grade++;
+	_grade--;
 }
 
 void	Bureaucrat::decreaseGrade(void)
 {
-	_grade--;
+	_grade++;
 }
 
 void	Bureaucrat::checkGrade(void)
@@ -68,7 +70,36 @@ void	Bureaucrat::checkGrade(void)
 		throw GradeTooLowException();
 }
 
-std::ostream&	operator<<(std::ostream& os, const Bureaucrat&	crat)
+int	Bureaucrat::signForm(Form& formo) const
+{
+	int	crat_grade;
+	int	formo_grade;
+
+	crat_grade = getGrade();
+	formo_grade = getGrade();
+	if (crat_grade < 1 || crat_grade > 150)
+	{
+		std::cout << getName() << " cannot sign because "
+			<< formo.getName() << "'s grade isn't valided" << std::endl;
+		return (0);
+	}
+	else if (formo.getStatus())
+	{
+		std::cout << getName() << " cannot sign because the form is already signed"
+			<< std::endl;
+		return (0);
+	}
+	else if (crat_grade < formo_grade)
+	{
+		std::cout << getName() << " cannot sign because his grade is too low"
+			<< std::endl;
+		throw Form::GradeTooLowException();
+	}
+	std::cout << getName() << " signs " << formo.getName() << std::endl;
+	return (1);
+}
+
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& crat)
 {
 	os << crat.getName() << ", bureaucrat grade " << crat.getGrade();
 	return (os);

@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:11:26 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/04 17:38:14 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/04 18:14:40 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ class ShrubberyCreationForm : virtual public Form
 	private:
 		int	_exec;
 		int	_sign;
+		std::string	_target;
 
 	public:
-		ShrubberyCreationForm(const Form&);
+		ShrubberyCreationForm(std::string _target);
 		~ShrubberyCreationForm(void) throw();
 		int	checkExecGrade(int execGrade) const;
 };

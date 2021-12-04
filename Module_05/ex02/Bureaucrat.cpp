@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:18:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/04 16:41:51 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/04 18:39:57 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,13 @@ int	Bureaucrat::signForm(Form& formo) const
 	int	formo_grade;
 
 	crat_grade = getGrade();
-	formo_grade = getGrade();
+	formo_grade = formo.getGrade();
 	if (crat_grade < 1 || crat_grade > 150)
+	{
+		std::cout << getName() << " cannot sign because his grade isn't valided" << std::endl;
+		return (0);
+	}
+	else if (formo_grade < 1 || formo_grade > 150)
 	{
 		std::cout << getName() << " cannot sign because "
 			<< formo.getName() << "'s grade isn't valided" << std::endl;
@@ -89,11 +94,11 @@ int	Bureaucrat::signForm(Form& formo) const
 			<< std::endl;
 		return (0);
 	}
-	else if (crat_grade < formo_grade)
+	else if (crat_grade > formo_grade)
 	{
 		std::cout << getName() << " cannot sign because his grade is too low"
 			<< std::endl;
-		throw Form::GradeTooLowException();
+		throw Form::GradeTooHighException();
 	}
 	std::cout << getName() << " signs " << formo.getName() << std::endl;
 	return (1);

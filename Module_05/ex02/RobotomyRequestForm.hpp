@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:28:45 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/04 17:38:42 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/04 18:13:54 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 class RobotomyRequestForm : virtual public Form
 {
 	private:
-		int		_exec;
-		int		_sign;
-		Form&	_target;
+		int	_exec;
+		int	_sign;
+		std::string	_target;
 
 	public:
-		RobotomyRequestForm(const Form&);
+		RobotomyRequestForm(std::string target);
 		~RobotomyRequestForm(void) throw();
 		int	checkExecGrade(int execGrade) const;
 };

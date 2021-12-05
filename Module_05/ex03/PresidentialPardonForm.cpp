@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:37:50 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:55:27 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/05 18:11:17 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,10 @@ int	PresidentialPardonForm::checkExecGrade(int execGrade) const
 void	PresidentialPardonForm::execAction(void) const
 {
 	std::cout << _target << " has been forgiven by Zafod Beeblebrox" << std::endl;
+}
+
+Form*	PresidentialPardonForm::createForm(std::string target)
+{
+	PresidentialPardonForm*	newForm = new PresidentialPardonForm(target);
+	return (newForm);
 }

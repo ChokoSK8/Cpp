@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:36:29 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:45:03 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/05 18:05:03 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,10 @@ void	ShrubberyCreationForm::execAction(void) const
 	std::ofstream outfile(fileName);
 	outfile << _tree << std::endl;
 	outfile.close();
+}
+
+Form*	ShrubberyCreationForm::createForm(std::string target)
+{
+	ShrubberyCreationForm*	newForm = new ShrubberyCreationForm(target);
+	return (newForm);
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 16:11:26 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:28:26 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/05 17:05:44 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/05 19:06:48 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 # include "Form.hpp"
 
-class ShrubberyCreationForm : virtual public Form
+typedef Form*	(*pif)(std::string);
+
+class	Intern
 {
 	private:
-		int	_exec;
-		int	_sign;
-		std::string	_target;
-		std::string	_tree;
+		std::string	_form[3];
+		pif			_pf[3];
 
 	public:
-		ShrubberyCreationForm(std::string _target);
-		~ShrubberyCreationForm(void) throw();
-		int	checkExecGrade(int execGrade) const;
-		void	execAction(void) const;
+		Intern(void);
+		~Intern(void);
+		Form*	makeForm(std::string form, std::string target);
 };
-#endif		
+#endif

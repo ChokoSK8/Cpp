@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:31:52 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:23:48 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/05 18:12:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,10 @@ void	RobotomyRequestForm::execAction(void) const
 		std::cout << _target << " has been robotomized" << std::endl;
 	else
 		std::cout << "The robotomisation of " << _target << " has failed" << std::endl;
+}
+
+Form*	RobotomyRequestForm::createForm(std::string target)
+{
+	RobotomyRequestForm*	newForm = new RobotomyRequestForm(target);
+	return (newForm);
 }

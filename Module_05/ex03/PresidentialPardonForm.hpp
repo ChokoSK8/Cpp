@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 16:11:26 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:28:26 by abrun            ###   ########.fr       */
+/*   Created: 2021/12/04 16:27:48 by abrun             #+#    #+#             */
+/*   Updated: 2021/12/05 19:04:02 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 # include "Form.hpp"
 
-class ShrubberyCreationForm : virtual public Form
+class PresidentialPardonForm : virtual public Form
 {
 	private:
 		int	_exec;
 		int	_sign;
 		std::string	_target;
-		std::string	_tree;
 
 	public:
-		ShrubberyCreationForm(std::string _target);
-		~ShrubberyCreationForm(void) throw();
+		PresidentialPardonForm(std::string target);
+		~PresidentialPardonForm(void) throw();
 		int	checkExecGrade(int execGrade) const;
 		void	execAction(void) const;
+		static Form*	createForm(std::string);
 };
-#endif		
+#endif

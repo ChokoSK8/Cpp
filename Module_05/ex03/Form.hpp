@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:21:27 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:16:11 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/05 18:03:53 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ class	Form : virtual public std::exception
 		};
 
 		class	FormIsntSigned : virtual public std::exception
+		{
+			public:
+				virtual const char*	what(void) const throw();
+		};
+
+		class	UnrecognizedForm : virtual public std::exception
 		{
 			public:
 				virtual const char*	what(void) const throw();

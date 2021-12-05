@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:57:30 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 17:34:13 by abrun            ###   ########.fr       */
+/*   Updated: 2021/12/05 18:00:40 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,11 @@ const char*	Form::GradeTooLowException::what(void) const throw()
 const char*	Form::FormIsntSigned::what(void) const throw()
 {
 	return ("Form : The formulary isn't signed");
+}
+
+const char*	Form::UnrecognizedForm::what(void) const throw()
+{
+	return ("Form : The formulary passed isn't reconignized");
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& formo)

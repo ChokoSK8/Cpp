@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:23:24 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/01 11:29:54 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/03 14:54:28 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	build_hpp(char *class)
 	if (!cap)
 		exit(2);
 	free(hpp);
-	ft_printf_fd(fd, "#ifndef %s_HPP\n# define %s_HPP\n# include <string>\n# include <iostream>\n\nclass	%s\n{\n\t\tprivate:\n\n\t\tpublic:\n\t\t\t%s(void);\n\t\t\t~%s(void);\n};\n#endif;", cap, cap, class, class, class, class);
+	ft_printf_fd(fd, "#ifndef %s_HPP\n# define %s_HPP\n# include <string>\n# include <iostream>\n\nclass	%s\n{\n\t\tprivate:\n\n\t\tpublic:\n\t\t\t%s(void);\n\t\t\t~%s(void);\n};\n#endif", cap, cap, class, class, class, class);
 	close(fd);
 	free(cap);
 }

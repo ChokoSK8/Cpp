@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:21:58 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/03 12:20:49 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/03 14:22:53 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,9 @@ void	Conv::toInt(std::string str)
 {
 	std::size_t	pos;
 	std::size_t	sublen;
+	bool		convertible;
 
+	convertible isInt
 	if (this->_type == 1)
 		this->_int = str;
 	else if (this->_type == 2 || this->_type == 3)

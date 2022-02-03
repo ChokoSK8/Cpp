@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ToInt.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:40:47 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/03 14:52:58 by abrun            ###   ########.fr       */
+/*   Created: 2022/02/03 14:15:26 by abrun             #+#    #+#             */
+/*   Updated: 2022/02/03 14:54:02 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-#include "Conv.hpp"
-#include "ToInt.hpp"
+#ifndef TOINT_HPP
+# define TOINT_HPP
+# include <string>
+# include <iostream>
+# include <limits>
 
-int	main(int ac, char **av)
+template <typename T>
+
+class	ToInt
 {
-	if (ac != 2)
-		return (1);
-	std::string str(av[1]);
-	std::cout << "argument : " + str << std::endl;
-	ToInt	n(4, "c", 'c');
-	std::cout << "int " << n._str << std::endl;
-	return (0);
-}
+		private:
+			std::string	_str;
+			int			_value;
+
+		public:
+			ToInt(std::string, int, const T&);
+			~ToInt(void);
+			std::string	getStr(void) const;
+			void		fillToInt(std::string, int, const T&);
+			bool		isConvertible(std::string, int);
+};
+#endif

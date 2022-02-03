@@ -1,6 +1,6 @@
 NAME	= convert
 
-SRCS	= main.cpp Conv.cpp
+SRCS	= main.cpp Conv.cpp ToInt.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

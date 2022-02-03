@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:21:27 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/03 12:14:36 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/03 14:15:12 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 # define CONV_HPP
 # include <string>
 # include <iostream>
+# include <limits>
+# include "ToInt.hpp"
 
 class	Conv
 {
 	private:
 			std::string	_float;
-			std::string	_int;
+			ToInt		_int;
 			std::string	_char;
 			std::string	_double;
+			float	_typeFloat;
+			char	_typeChar;
+			double	_typeDouble;
 			int		_type;
 
 	public:

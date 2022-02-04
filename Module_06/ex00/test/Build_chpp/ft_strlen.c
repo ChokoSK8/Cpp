@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: abrun <abrun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:40:47 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/04 12:07:50 by abrun            ###   ########.fr       */
+/*   Created: 2020/11/18 12:33:42 by abrun             #+#    #+#             */
+/*   Updated: 2022/02/01 11:01:32 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-#include "Conv.hpp"
-#include "ToInt.hpp"
+#include "point.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlen(char *s)
 {
-	if (ac != 2)
-		return (1);
-	std::string str(av[1]);
-	std::cout << "argument : " + str << std::endl;
-	return (0);
+	size_t	strlen;
+
+	if (!s)
+		return (0);
+	strlen = 0;
+	while (*s++)
+		strlen++;
+	return (strlen);
 }

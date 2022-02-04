@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:21:27 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/04 12:17:04 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/04 13:27:34 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include <string>
 # include <iostream>
 # include <limits>
+
+struct	scal
+
 
 class	Conv
 {

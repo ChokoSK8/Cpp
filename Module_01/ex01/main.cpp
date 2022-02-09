@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 13:51:38 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/26 14:55:03 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/09 15:11:51 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ int	main()
 {
 	Zombie	*horde;
 	int		c;
+	int		n_zombie;
 
-	horde = zombieHorde(5, "Zombax");
+	n_zombie = 5;
+	horde = zombieHorde(n_zombie, "Zombax");
 	c = 0;
-	while (c < 5)
+	while (c < n_zombie)
 	{
 		horde[c].annonce();
 		c++;

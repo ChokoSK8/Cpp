@@ -12,7 +12,7 @@
 
 #ifndef PHONE_BOOK_HPP
 # define PHONE_BOOK_HPP
-# include "phone_book.h"
+# include "point.h"
 # include "Contact.hpp"
 
 class	Phone_book

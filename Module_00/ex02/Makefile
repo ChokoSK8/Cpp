@@ -1,10 +1,10 @@
-NAME	= horde
+NAME	= accouts
 
-SRCS	= Zombie.cpp ZombieHorde.cpp main.cpp
+SRCS	= tests.cpp Account.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 INC		= -I includes/
 
@@ -22,8 +22,8 @@ clean:
 		$(RM) $(OBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+		$(RM) $(NAME)
 
-re:			fclean all
+re:		fclean all
 
 .PHONY:		all clean fclean re

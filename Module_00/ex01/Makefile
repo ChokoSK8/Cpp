@@ -4,26 +4,26 @@ SRCS	= Phone_book.cpp Contact.cpp tools.cpp main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 INC		= -I includes/
 
 RM		= rm -rf
 
 %.o: %.c
-		clang++ $(FLAGS) $(INC) -o $@ -c $?
+		c++ $(FLAGS) $(INC) -o $@ -c $?
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-				clang++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
+		c++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
 
 clean:
 		$(RM) $(OBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+		$(RM) $(NAME)
 
-re:			fclean all
+re:		fclean all
 
 .PHONY:		all clean fclean re

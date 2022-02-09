@@ -6,11 +6,11 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:32:16 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/25 15:13:03 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/09 15:51:56 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone_book.h"
+#include "point.h"
 
 Phone_book::Phone_book()
 {
@@ -79,6 +79,8 @@ void	Phone_book::ask_for_index()
 	while (index)
 	{
 		std::cout << "Entrez l'index du contact que vous souhaitez afficher : ";
+		if (std::cin.eof())
+			exit (1);
 		std::cin >> str;
 		if (str.find_first_not_of("0123456789") == std::string::npos)
 		{
@@ -89,10 +91,10 @@ void	Phone_book::ask_for_index()
 				index = 0;
 			}
 			else
-				std::cout << "L'index entrée n'est pas attribué" << std::endl;
+				std::cout << "L'index entré n'est pas attribué" << std::endl;
 		}
 		else
-			std::cout << "Vous avez entrer des caractères invalides" << std::endl;
+			std::cout << "Vous avez entre des caractères invalides" << std::endl;
 	}
 }
 

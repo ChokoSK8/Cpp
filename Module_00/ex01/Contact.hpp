@@ -12,7 +12,7 @@
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-#include "phone_book.h"
+#include "point.h"
 
 class	Contact
 {

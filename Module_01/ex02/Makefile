@@ -11,12 +11,12 @@ INC		= -I includes/
 RM		= rm -rf
 
 %.o: %.c
-		clang++ $(FLAGS) $(INC) -o $@ -c $?
+		c++ $(FLAGS) $(INC) -o $@ -c $?
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-				clang++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
+		c++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
 
 clean:
 		$(RM) $(OBJS)

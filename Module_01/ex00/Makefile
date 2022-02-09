@@ -6,24 +6,24 @@ OBJS	= $(SRCS:.cpp=.o)
 
 FLAGS	= -Wall -Werror -Wextra
 
-INC		= -I includes/
+INC	= -I includes/
 
-RM		= rm -rf
+RM	= rm -rf
 
 %.o: %.c
-		clang++ $(FLAGS) $(INC) -o $@ -c $?
+	c++ $(FLAGS) $(INC) -o $@ -c $?
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-				clang++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
+	c++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
 
 clean:
-		$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+	$(RM) $(NAME)
 
-re:			fclean all
+re:		fclean all
 
 .PHONY:		all clean fclean re

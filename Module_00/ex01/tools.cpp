@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone_book.h"
+#include "point.h"
 
 void	print_string(std::string str)
 {

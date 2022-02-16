@@ -4,13 +4,13 @@ SRCS	= Zombie.cpp ZombieHorde.cpp main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 INC		= -I includes/
 
 RM		= rm -rf
 
-%.o: %.c
+%.o: %.cpp
 		c++ $(FLAGS) $(INC) -o $@ -c $?
 
 all:	$(NAME)

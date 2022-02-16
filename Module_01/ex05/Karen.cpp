@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 17:41:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/28 18:22:57 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/16 13:44:29 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,30 @@
 
 Karen::Karen(void)
 {
+	std::cout << "Default constuctor called" << std::endl;
+	this->myMap["DEBUG"] = &Karen::debug;
+	this->myMap["INFO"] = &Karen::info;
+	this->myMap["WARNING"] = &Karen::warning;
+	this->myMap["ERROR"] = &Karen::error;
 }
 
 Karen::~Karen(void)
 {
+	std::cout << "Default destuctor called" << std::endl;
 }
 
 void	Karen::complain(std::string level)
 {
-	void	(Karen::*ptr_fct) (void);
+	void	(Karen::*ptrF) (void);
 
-	ptr_fct = NULL;
-	if (level.compare("DEBUG") == 0)
-		ptr_fct = &Karen::debug;
-	else if (level.compare("INFO") == 0)
-		ptr_fct = &Karen::info;
-	else if (level.compare("WARNING") == 0)
-		ptr_fct = &Karen::warning;
-	else if (level.compare("ERROR") == 0)
-		ptr_fct = &Karen::error;
-	if (ptr_fct)
-		(this->*ptr_fct) ();
+	if (!level.compare("DEBUG") || !level.compare("INFO")
+			|| !level.compare("WARNING") || !level.compare("ERROR"))
+	{
+		ptrF = this->myMap[level];
+		(this->*ptrF) ();
+	}
+	else
+		std::cout << "Sorry, Karen hasn't time for this **** !" << std::endl;
 }
 
 void	Karen::debug(void)

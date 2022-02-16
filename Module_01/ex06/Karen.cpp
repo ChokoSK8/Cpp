@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 17:41:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/28 19:29:31 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/16 13:56:25 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,43 @@
 
 Karen::Karen(void)
 {
+	std::cout << "Default constuctor called" << std::endl;
+	this->myMap["DEBUG"] = 1;
+	this->myMap["INFO"] = 2;
+	this->myMap["WARNING"] = 3;
+	this->myMap["ERROR"] = 4;
 }
 
 Karen::~Karen(void)
 {
+	std::cout << "Default destuctor called" << std::endl;
 }
 
 void	Karen::complain(std::string level)
 {
-	void	(Karen::*ptr_fct) (void);
 	int	n;
 
 	n = 0;
-	if (level.compare("DEBUG") == 0)
-		n = 1;
-	else if (level.compare("INFO") == 0)
-		n = 2;
-	else if (level.compare("WARNING") == 0)
-		n = 3;
-	else if (level.compare("ERROR") == 0)
-		n = 4;
+	if (!level.compare("DEBUG") || !level.compare("INFO")
+			|| !level.compare("WARNING") || !level.compare("ERROR"))
+		n = this->myMap[level];
 	switch (n)
 	{
 		case 1:
-			ptr_fct = &Karen::debug;
+			this->debug();
 			break;
 		case 2:
-			ptr_fct = &Karen::info;
+			this->info();
 			break;
 		case 3:
-			ptr_fct = &Karen::warning;
+			this->warning();
 			break;
 		case 4:
-			ptr_fct = &Karen::error;
+			this->error();
 			break;
 		default:
-			ptr_fct = NULL;
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
-	if (ptr_fct)
-		(this->*ptr_fct) ();
 }
 
 void	Karen::debug(void)

@@ -10,7 +10,7 @@ INC	= -I includes/
 
 RM	= rm -rf
 
-%.o: %.c
+%.o: %.cpp
 		c++ $(FLAGS) $(INC) -o $@ -c $?
 
 all:	$(NAME)

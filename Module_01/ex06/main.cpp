@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 18:06:43 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/28 19:19:30 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/16 13:52:20 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int	main(int ac, char **av)
 {
-	Karen	K;
-
 	if (ac != 2)
 		return (1);
+
+	Karen	K;
+
 	K.complain(std::string(av[1]));
 	return (0);
 }

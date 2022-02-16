@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 19:47:54 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/30 10:03:17 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/16 15:33:12 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,20 +170,6 @@ int	operator!=(const Fixed &fixe_a, const Fixed &fixe_b)
 	if (fixe_a.toFloat() != fixe_b.toFloat())
 		return (1);
 	return (0);
-}
-
-static Fixed&	Fixed::max(Fixed &fixe)
-{
-	if (this->_raw > fixe.getRawBits())
-		return (*this);
-	return (fixe);
-}
-
-static Fixed&	Fixed::min(Fixed &fixe)
-{
-	if (this->_raw < fixe.getRawBits())
-		return (*this);
-	return (fixe);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& nbr)

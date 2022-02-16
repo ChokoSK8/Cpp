@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 19:38:15 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/28 20:32:03 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/16 14:41:44 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 class	Fixed
 {
-	protected:
-		int			fix;
-		static const int	bits = 8;
+	private:
+		int			_fix;
+		static const int	_bits = 8;
 	
 	public:
 		Fixed();

@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 19:47:54 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/29 13:38:33 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/16 15:13:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,14 @@ Fixed& Fixed::operator=(const Fixed &fixeed)
 
 Fixed::Fixed(const int n)
 {
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << "Int assignment constructor called" << std::endl;
 	setRawBits(n << _bits);
 }
 
 //	1 << _bits : on décale à gauche de _bits la representation par bits de 1
 Fixed::Fixed(const float n)
 {
-
-	std::cout << "Float constructor called" << std::endl;
+	std::cout << "Float assignment constructor called" << std::endl;
 	this->_raw = roundf(n * (1 << _bits));
 }
 
@@ -70,7 +69,7 @@ float	Fixed::toFloat(void) const
 	return ((float)this->_raw / (1 << _bits));
 }
 
-int		Fixed::toInt(void) const
+int	Fixed::toInt(void) const
 {
 	return (getRawBits() >> _bits);
 }

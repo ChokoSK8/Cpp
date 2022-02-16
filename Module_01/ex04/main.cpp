@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 16:41:56 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/26 20:51:54 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/16 12:13:48 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 
 	if (ac != 4)
 	{
-		std::cout << "Il n'y pas le bon nombre d'argument" << std::cin;
+		std::cout << "Il n'y pas le bon nombre d'argument" << std::endl;
 		return (1);
 	}
 	s1 = std::string(av[2]);
@@ -37,11 +37,11 @@ int	main(int ac, char **av)
 	s1_len = s1.size();
 	std::string infile = std::string(av[1]);
 	std::ifstream file(infile);
-	if (!file || !s1_len || !s2_len)
+	if (!file || !s1_len)
 	{
 		std::cout << "Il y a un problème avec l'un des arguments" << std::endl;
 		if (file)
-			file.close;
+			file.close();
 		return (2);
 	}
 	rep = infile + ".replace";
@@ -60,6 +60,7 @@ int	main(int ac, char **av)
 				line = line.substr(found + s1_len);
 				found = line.find(s1);
 			}
+			replace << line; 
 		}
 		replace << std::endl;
 	}

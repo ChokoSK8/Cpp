@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 11:53:15 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 11:32:28 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/21 16:59:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,22 @@ FragTrap	FragTrap::operator=(const FragTrap& trap)
 	this->setEnergyPoints(trap.getEnergyPoints());
 	this->setAttackDamage(trap.getAttackDamage());
 	return (*this);
+}
+
+void	FragTrap::attack(std::string const &target)
+{
+	if (getEnergyPoints() <= 0)
+	{
+		std::cout << "FragTrap " << getName()
+		<< " cannot attack for now" << std::endl;
+	}
+	else
+	{
+		decreaseEnergyPoints();
+		std::cout << "FragTrap " << getName() << " attack " << target
+		<< ", causing " << getAttackDamage() << " points of damage !"
+		<< std::endl;
+	}
 }
 
 void	FragTrap::highFivesGuys(void)

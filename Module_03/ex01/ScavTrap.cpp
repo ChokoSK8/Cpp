@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:58:30 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 11:09:54 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/21 17:00:51 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,22 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& trap)
 	this->setEnergyPoints(trap.getEnergyPoints());
 	this->setAttackDamage(trap.getAttackDamage());
 	return (*this);
+}
+
+void	ScavTrap::attack(std::string const &target)
+{
+	if (getEnergyPoints() <= 0)
+	{
+		std::cout << "ScavTrap " << getName()
+		<< " hasn't any energy points" << std::endl;
+	}
+	else
+	{
+		decreaseEnergyPoints();
+		std::cout << "FragTrap " << getName() << " attack " << target
+		<< ", causing " << getAttackDamage() << " points of damage !"
+		<< std::endl;
+	}
 }
 
 void	ScavTrap::guardGate(void)

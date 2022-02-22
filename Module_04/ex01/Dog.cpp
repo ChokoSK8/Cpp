@@ -6,33 +6,28 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:47:30 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 14:16:59 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/22 16:18:24 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include <iostream>
 
-Dog::Dog(void):Animal("dog")
+Dog::Dog(void):Animal("Dog")
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	this->_brain = new Brain();
 }
 
-Dog::Dog(std::string ideas):Animal("dog")
+Dog::Dog(std::string &ideas):Animal("Dog")
 {
 	std::cout << "Dog setBrain constructor called" << std::endl;
 	this->_brain = new Brain(ideas);
 }
 
-Dog&	Dog::operator=(const Dog& dogo)
+Dog::Dog(const Dog& ymir):Animal(ymir.getType())
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	if (this->_brain)
-		delete [] this->_brain;
-	this->_brain = dogo._brain;
-	this->_type = dogo.getType();
-	return (*this);
 }
 
 Dog::~Dog(void)
@@ -41,12 +36,19 @@ Dog::~Dog(void)
 	delete _brain;
 }
 
+Dog	Dog::operator=(const Dog& ymir)
+{
+	std::cout << "Dog copy assignment constructor called" << std::endl;
+	this->_type = ymir.getType();
+	return (*this);
+}
+
 void	Dog::makeSound(void) const
 {
 	std::cout << "The " << getType() << " says : Wouf Wouf !" << std::endl;
 }
 
-void	Dog::display_brain(void) const
+void	Dog::displayBrain(void) const
 {
-	this->_brain->display_ideas();
+	this->_brain->displayIdeas();
 }

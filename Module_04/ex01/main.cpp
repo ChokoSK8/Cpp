@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:53:08 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 15:55:28 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/22 16:17:11 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int	main()
 {
 	const Dog*	dog = new Dog();
-	const Cat*	cat = new Cat("dog");
-	Cat		cat_2("cat");
+	const Cat*	cat = new Cat();
+	Cat		cat_2;
 	Cat		cat_3;
 	const Animal**	array;
 	int		c = -1;
@@ -31,22 +31,22 @@ int	main()
 	while (++c < 4)
 		array[c] = new Dog();
 	cat_3 = cat_2;
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << cat->getType() << " " << std::endl;
+	std::cout << dog->getType() << std::endl;
+	std::cout << cat->getType() << std::endl;
 	dog->makeSound();
-	dog->display_brain();
+	dog->displayBrain();
 	cat->makeSound();
-	cat->display_brain();
-	std::cout << cat_2.getType() << " " << std::endl;
-	std::cout << cat_3.getType() << " " << std::endl;
-	cat_2.display_brain();
-	cat_3.display_brain();
+	cat->displayBrain();
+	std::cout << cat_2.getType() << std::endl;
+	std::cout << cat_3.getType() << std::endl;
+	cat_2.displayBrain();
+	cat_3.displayBrain();
 	delete dog;
 	delete cat;
 
-	std::cout << array[1]->getType() << " " << std::endl;
+	std::cout << array[1]->getType() << std::endl;
 	array[1]->makeSound();
-	std::cout << array[2]->getType() << " " << std::endl;
+	std::cout << array[2]->getType() << std::endl;
 	c = -1;
 	while (++c < 4)
 		delete array[c];

@@ -5,25 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 12:39:32 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 14:55:41 by abrun            ###   ########.fr       */
+/*   Created: 2022/02/22 12:36:08 by abrun             #+#    #+#             */
+/*   Updated: 2022/02/22 16:23:25 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
+# include "Animal.hpp"
 # include <string>
+# include <iostream>
+# include <sstream>
 
-class	Brain
+class	Brain : virtual public Animal
 {
 	protected:
-		std::string*	_ideas;
+		std::string _ideas[100];
 
 	public:
 		Brain(void);
 		Brain(std::string ideas);
-		Brain& operator=(const Brain&);
+		Brain(const Brain&);
 		~Brain(void);
-		void	display_ideas(void) const;
+		Brain	operator=(const Brain&);
+
+		void	displayIdeas(void) const;
+		std::string	getIdeas(int) const;
 };
 #endif

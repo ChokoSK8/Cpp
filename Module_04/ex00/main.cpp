@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:53:08 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 12:24:11 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/22 12:03:28 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main()
 	const Cat* cat = new Cat();
 	const WrongCat* wrongCat = new WrongCat();
 
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << cat->getType() << " " << std::endl;
-	std::cout << wrongCat->getType() << " " << std::endl;
+	std::cout << dog->getType() << std::endl;
+	std::cout << cat->getType() << std::endl;
+	std::cout << wrongCat->getType() << std::endl;
 	cat->makeSound();
 	dog->makeSound();
 	meta->makeSound();

@@ -1,22 +1,22 @@
 NAME	= animal
 
-SRCS	= Brain.cpp Dog.cpp Cat.cpp Animal.cpp main.cpp
+SRCS	= WrongCat.cpp WrongAnimal.cpp Dog.cpp Cat.cpp Animal.cpp main.cpp Brain.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 INC		= -I includes/
 
 RM		= rm -rf
 
-%.o: %.c
-		clang++ $(FLAGS) $(INC) -o $@ -c $?
+%.o: %.cpp
+		c++ $(FLAGS) $(INC) -o $@ -c $?
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-				clang++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
+		c++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
 
 clean:
 		$(RM) $(OBJS)

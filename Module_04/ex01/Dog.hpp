@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:55:46 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 14:02:32 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/22 12:46:06 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ class	Dog : virtual public Animal
 
 	public:
 		Dog(void);
-		Dog(std::string ideas);
-		Dog& operator=(const Dog&);
+		Dog(std::string&);
+		Dog(const Dog&);
 		~Dog(void);
+		Dog	operator=(const Dog&);
 		virtual void	makeSound(void) const;
-		void	display_brain(void) const;
+		void	displayBrain(void) const;
 };
 #endif

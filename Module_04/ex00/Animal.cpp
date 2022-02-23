@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:59:53 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/22 11:41:38 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:02:55 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Animal::~Animal(void)
 	std::cout << "Animal destructor called" << std::endl;
 }
 
-Animal	Animal::operator=(const Animal& ymir)
+Animal&	Animal::operator=(const Animal& ymir)
 {
 	std::cout << "Animal copy assignment constructor called" << std::endl;
 	this->_type = ymir.getType();

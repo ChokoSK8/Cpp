@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:20:11 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/22 11:51:30 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:03:14 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ WrongCat::~WrongCat(void)
 	std::cout << "WrongCat destructor called" << std::endl;
 }
 
-WrongCat	WrongCat::operator=(const WrongCat& ymir)
+WrongCat&	WrongCat::operator=(const WrongCat& ymir)
 {
 	std::cout << "WrongCat copy assignment constructor called" << std::endl;
 	this->_type = ymir.getType();

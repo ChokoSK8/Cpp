@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:14:11 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/22 12:01:41 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:03:38 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ WrongAnimal::~WrongAnimal(void)
 	std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-WrongAnimal	WrongAnimal::operator=(const WrongAnimal& ymir)
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& ymir)
 {
 	std::cout << "WrongAnimal copy assignment constructor called" << std::endl;
 	this->_type = ymir.getType();

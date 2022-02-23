@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:55:46 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/22 11:44:03 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:02:10 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Dog : virtual public Animal
 		Dog(void);
 		Dog(const Dog&);
 		~Dog(void);
-		Dog	operator=(const Dog&);
+		Dog&	operator=(const Dog&);
 		virtual void	makeSound(void) const;
 };
 #endif

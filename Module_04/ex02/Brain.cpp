@@ -6,50 +6,63 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:43:12 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/01 15:05:25 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:55:54 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include  "Brain.hpp"
-#include <iostream>
 
 Brain::Brain(void)
 {
-	int	c = -1;
+	int		c = -1;
 
 	std::cout << "Brain default constructor called" << std::endl;
 	this->_ideas = new std::string[100];
 	while (++c < 100)
-		this->_ideas[c] = "nervs_" + std::to_string(c + 1);
+		this->_ideas[c] = "nerv";
 }
 
-Brain::Brain(std::string ideas)
+Brain::Brain(std::string id)
+{
+	int		c = -1;
+
+	std::cout << "Brain setIdeas constructor called" << std::endl;
+	this->_ideas = new std::string[100];
+	while (++c < 100)
+		this->_ideas[c] = id;
+}
+
+Brain::Brain(const Brain& ymir)
 {
 	int	c = -1;
 
-	std::cout << "Brain setAttribute constructor called" << std::endl;
+	std::cout << "Brain copy constructor called" << std::endl;
 	this->_ideas = new std::string[100];
 	while (++c < 100)
-		this->_ideas[c] = ideas + std::to_string(c + 1);
+		this->_ideas[c] = ymir.getIdeas(c);
+}
+
+Brain::~Brain(void)
+{
+	std::cout << "Brain destructor called" << std::endl;
+	delete [] _ideas;
 }
 
 Brain&	Brain::operator=(const Brain& braini)
 {
 	int	c = -1;
 
-	std::cout << "Brain copy constructor called" << std::endl;
+	std::cout << "Brain copy assignment constructor called" << std::endl;
+
+	delete [] this->_ideas;
+
+	this->_ideas = new std::string[100];
 	while (++c < 100)
 		this->_ideas[c] = braini._ideas[c];
 	return (*this);
 }
 
-Brain::~Brain(void)
-{
-	std::cout << "Brain destructor called" << std::endl;
-	delete [] this->_ideas;
-}
-
-void	Brain::display_ideas(void) const
+void	Brain::displayIdeas(void) const
 {
 	int	c = -1;
 
@@ -60,4 +73,15 @@ void	Brain::display_ideas(void) const
 		else
 			std::cout << this->_ideas[c] << std::endl;
 	}
+}
+
+void	Brain::setIdeas(int n, std::string id)
+{
+	if (this->_ideas)
+		this->_ideas[n] = id;
+}
+
+std::string	Brain::getIdeas(int n) const
+{
+	return (this->_ideas[n]);
 }

@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:51:05 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/22 11:50:15 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:02:02 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Cat::~Cat(void)
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat	Cat::operator=(const Cat& ymir)
+Cat&	Cat::operator=(const Cat& ymir)
 {
 	std::cout << "Cat copy assignment constructor called" << std::endl;
 	this->_type = ymir.getType();

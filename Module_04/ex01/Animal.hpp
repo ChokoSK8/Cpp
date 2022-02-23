@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:52:03 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/22 11:37:11 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 14:04:56 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Animal
 		Animal(std::string type);
 		Animal(const Animal&);
 		virtual ~Animal(void);
-		Animal	operator=(const Animal&);
+		Animal&	operator=(const Animal&);
 		virtual void	makeSound(void) const;
 		std::string	getType(void) const;
 		void		setType(std::string type);

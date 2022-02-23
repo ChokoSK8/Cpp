@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:57:31 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/22 12:48:37 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/23 12:23:08 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class	Cat : virtual public Animal
 
 	public:
 		Cat(void);
-		Cat(std::string&);
 		Cat(const Cat&);
-		~Cat(void);
-		Cat	operator=(const Cat&);
+		virtual ~Cat(void);
+		Cat&	operator=(const Cat&);
 		virtual void	makeSound(void) const;
 		void	displayBrain(void) const;
+		void	setBrain(int, std::string);
 };
 #endif

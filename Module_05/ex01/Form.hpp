@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:21:27 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/03 18:56:03 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/24 16:48:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ class	Form : virtual public std::exception
 	private:
 		std::string	_name;
 		int		_grade;
-
-	protected:
 		bool	_signed;
 
 	public:
+		Form(void);
 		Form(std::string name, int grade);
+		Form(const Form&);
 		virtual ~Form(void) throw();
+		Form&	operator=(const Form&);
 		std::string	getName(void) const;
 		int		getGrade(void) const;
 		bool		getStatus(void) const;

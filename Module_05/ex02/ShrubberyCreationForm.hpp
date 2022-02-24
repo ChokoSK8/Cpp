@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:11:26 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:28:26 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/24 16:59:11 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class ShrubberyCreationForm : virtual public Form
 {
 	private:
 		int	_exec;
-		int	_sign;
 		std::string	_target;
 		std::string	_tree;
 

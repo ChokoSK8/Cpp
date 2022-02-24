@@ -6,14 +6,22 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:18:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/03 16:15:46 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/24 16:20:24 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat(void)
+{
+	std::cout << "Bureaucrat default constructor called" << std::endl;
+	_name = "Antoine";
+	_grade = 150;
+}
+
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
 {
+	std::cout << "Bureaucrat setParam constructor called" << std::endl;
 	try
 	{
 		_name = name;
@@ -26,8 +34,39 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 	}
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& ymir)
+{
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	try
+	{
+		_name = ymir.getName();
+		_grade = ymir.getGrade();
+		checkGrade();
+	}
+	catch (std::exception const& e)
+	{
+		std::cout << "ERREUR : " << e.what() << std::endl;
+	}
+}
+
 Bureaucrat::~Bureaucrat(void) throw()
 {
+}
+
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ymir)
+{
+	std::cout << "Bureaucrat copy assignment constructor called" << std::endl;
+	try
+	{
+		_name = ymir.getName();
+		_grade = ymir.getGrade();
+		checkGrade();
+	}
+	catch (std::exception const& e)
+	{
+		std::cout << "ERREUR : " << e.what() << std::endl;
+	}
+	return (*this);
 }
 
 const char*	Bureaucrat::GradeTooHighException::what(void) const throw()
@@ -52,12 +91,18 @@ int	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::increaseGrade(void)
 {
-	_grade++;
+	if (_grade > 1)
+		_grade--;
+	else
+		std::cout << getName() << " cannot be inscrease" << std::endl;
 }
 
 void	Bureaucrat::decreaseGrade(void)
 {
-	_grade--;
+	if (_grade < 150)
+		_grade++;
+	else
+		std::cout << getName() << " cannot be decrease" << std::endl;
 }
 
 void	Bureaucrat::checkGrade(void)

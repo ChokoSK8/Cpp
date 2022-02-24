@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:27:48 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:19:20 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/24 16:59:34 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class PresidentialPardonForm : virtual public Form
 {
 	private:
 		int	_exec;
-		int	_sign;
 		std::string	_target;
 
 	public:

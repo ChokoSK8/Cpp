@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:28:45 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:24:00 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/24 16:58:59 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class RobotomyRequestForm : virtual public Form
 {
 	private:
 		int	_exec;
-		int	_sign;
 		std::string	_target;
 
 	public:

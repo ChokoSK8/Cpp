@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:28:45 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 12:07:55 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 16:59:11 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ class RobotomyRequestForm : virtual public Form
 		RobotomyRequestForm(const RobotomyRequestForm&);
 		~RobotomyRequestForm(void) throw();
 		RobotomyRequestForm&	operator=(const RobotomyRequestForm&);
-		int	checkExecGrade(int execGrade) const;
 		void	execAction(void) const;
 };
 

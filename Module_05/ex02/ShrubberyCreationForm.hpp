@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:11:26 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 14:17:36 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 16:58:50 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class ShrubberyCreationForm : virtual public Form
 		~ShrubberyCreationForm(void) throw();
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm&);
 		std::string	getTree(void) const;
-		int	checkExecGrade(int execGrade) const;
 		void	execAction(void) const;
 };
 

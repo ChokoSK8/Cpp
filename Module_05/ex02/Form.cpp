@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:57:30 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 14:15:51 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 17:00:02 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,26 @@ std::string	Form::getTarget(void) const
 	return (_target);
 }
 
+void	Form::setName(std::string name)
+{
+	_name = name;
+}
+
+void	Form::setGrade(int grade)
+{
+	_grade = grade;
+}
+
+void	Form::setExec(int exec)
+{
+	_exec = exec;
+}
+
+void	Form::setTarget(std::string target)
+{
+	_target = target;
+}
+
 void	Form::beSigned(Bureaucrat &crat)
 {
 	try
@@ -151,7 +171,8 @@ void	Form::execute(Bureaucrat const& executor) const
 	try
 	{
 		checkSignature();
-		checkBureaucratGrade(executor);
+		executor.checkGrade();
+		executor.canHeExecute(*this);
 		execAction();
 	}
 	catch (std::exception& e)
@@ -178,6 +199,17 @@ void	Form::checkBureaucratGrade(Bureaucrat const& executor) const
 		throw Bureaucrat::GradeTooLowException();
 }
 
+void	Form::toSign(void)
+{
+	this->_signed = true;
+}
+
+void	Form::checkSignature(void)
+{
+	if (_signed)
+		throw Form::FormAlreadySigned();
+}
+
 const char*	Form::GradeTooHighException::what(void) const throw()
 {
 	return ("Form : The grade passed is too high");
@@ -193,9 +225,16 @@ const char*	Form::FormIsntSigned::what(void) const throw()
 	return ("Form : The formulary isn't signed");
 }
 
-void	Form::toSign(void)
+const char*	Form::FormAlreadySigned::what(void) const throw()
 {
-	this->_signed = true;
+	return ("Form : The formulary is already signed");
+}
+
+int	Form::checkExecGrade(int execGrade) const
+{
+	if (execGrade < _exec)
+		return (1);
+	return (0);
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& formo)

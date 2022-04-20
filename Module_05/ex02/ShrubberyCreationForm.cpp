@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:36:29 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 14:02:52 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 17:38:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@
 ShrubberyCreationForm::ShrubberyCreationForm(void):Form("Creation", 145)
 {
 	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
-	_exec = 137;
+	setExec(137);
 	_tree = "   *\n  (8)\n (888)\n   |\n  ===";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):Form(target, 145)
 {
 	std::cout << "ShrubberyCreationForm setParam constructor called" << std::endl;
-	_target = target;
-	_exec = 137;
+	setExec(137);
+	setTarget(target);
 	_tree = "   *\n  (8)\n (888)\n   |\n  ===";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& ymir):Form(ymir)
 {
 	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
-	_target = ymir.getTarget();
-	_grade = ymir.getGrade();
-	_exec = ymir.getExec();
+	setTarget(ymir.getTarget());
+	setGrade(ymir.getGrade());
+	setExec(ymir.getExec());
 	_tree = ymir.getTree();
 }
 
@@ -46,9 +46,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) throw()
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& ymir)
 {
 	std::cout << "ShrubberyCreationForm copy assignement constructor called" << std::endl;
-	_target = ymir.getTarget();
-	_grade = ymir.getGrade();
-	_exec = ymir.getExec();
+	setTarget(ymir.getTarget());
+	setGrade(ymir.getGrade());
+	setExec(ymir.getExec());
 	_tree = ymir.getTree();
 	return (*this);
 }
@@ -56,13 +56,6 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 std::string	ShrubberyCreationForm::getTree(void) const
 {
 	return (this->_tree);
-}
-
-int	ShrubberyCreationForm::checkExecGrade(int execGrade) const
-{
-	if (execGrade < _exec)
-		return (1);
-	return (0);
 }
 
 void	ShrubberyCreationForm::execAction(void) const

@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:21:27 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 14:16:37 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 16:59:56 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ class	Form : virtual public std::exception
 		std::string	_name;
 		int		_maxGrade;
 		int		_minGrade;
-
-	protected:
 		bool		_signed;
 		int		_grade;
-		std::string	_target;
 		int		_exec;
+		std::string	_target;
 
 	public:
 		Form(void);
@@ -42,13 +40,18 @@ class	Form : virtual public std::exception
 		bool	getStatus(void) const;
 		std::string	getTarget(void) const;
 		int		getExec(void) const;
+		void	setName(std::string);
+		void		setGrade(int);
+		void		setExec(int);
+		void		setTarget(std::string);
 		void	beSigned(Bureaucrat&);
 		void	check_grade(void);
 		void	execute(Bureaucrat const&) const;
 		void	checkSignature(void) const;
 		void	checkBureaucratGrade(Bureaucrat const&) const;
 		void	toSign(void);
-		virtual int		checkExecGrade(int execGrade) const = 0;
+		void	checkSignature(void);
+		int	checkExecGrade(int execGrade) const;
 		virtual void	execAction(void) const = 0;
 
 		class	GradeTooHighException : virtual public std::exception
@@ -64,6 +67,12 @@ class	Form : virtual public std::exception
 		};
 
 		class	FormIsntSigned : virtual public std::exception
+		{
+			public:
+				virtual const char*	what(void) const throw();
+		};
+		
+		class	FormAlreadySigned : virtual public exception
 		{
 			public:
 				virtual const char*	what(void) const throw();

@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:18:05 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 14:16:24 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 13:43:54 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	Bureaucrat::decreaseGrade(void)
 	_grade++;
 }
 
-void	Bureaucrat::checkGrade(void)
+void	Bureaucrat::checkGrade(void) const
 {
 	if (_grade < 0)
 		throw GradeTooHighException();
@@ -110,31 +110,17 @@ void	Bureaucrat::checkGrade(void)
 
 int	Bureaucrat::signForm(Form& formo) const
 {
-	int	crat_grade;
-	int	formo_grade;
-
-	crat_grade = getGrade();
-	formo_grade = formo.getGrade();
-	if (crat_grade < 1 || crat_grade > 150)
+	try
 	{
-		std::cout << getName() << " couldn't sign " << formo.getName() << " because the bureaucrat grade isn't valided" << std::endl;
-	}
-	else if (formo_grade < 1 || formo_grade > 150)
-	{
-		std::cout << getName() << " couldn't sign " << formo.getName() << " because " << formo.getName() << "'s grade isn't valided" << std::endl;
-	}
-	else if (formo.getStatus())
-	{
-		std::cout << getName() << " couldn't sign " << formo.getName() << " because the form is already signed" << std::endl;
-	}
-	else if (crat_grade > formo_grade)
-	{
-		std::cout << getName() << " couldn't sign " << formo.getName() << " because the bureaucrat grade is too low" << std::endl;
-	}
-	else
-	{
+		checkGrade();
+		formo.checkSignature();
+		canHeSigns(formo);
 		std::cout << getName() << " signed " << formo.getName() << std::endl;
-		formo.toSign();
+			formo.toSign();
+	}
+	catch (std::exception const& e)
+	{
+		std::cout << "ERREUR : " << e.what() << std::endl;
 	}
 	return (1);
 }
@@ -143,6 +129,29 @@ void	Bureaucrat::canHeSigns(const Form& formo) const
 {
 	if (this->_grade > formo.getGrade())
 		throw GradeTooLowException();
+}
+
+void	Bureaucrat::canHeExecute(const Form& formo) const
+{
+	if (this->_grade > formo.getExec())
+		throw GradeTooLowException();
+}
+
+void	Bureaucrat::executeForm(const Form& formo)
+{
+	try
+	{
+		formo.checkSignature();
+		checkGrade();
+		canHeExecute(formo);
+		formo.execAction();
+		std::cout << getName() << " execute " << formo.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "ERREUR : " << e.what() << std::endl;
+	}
+
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& crat)

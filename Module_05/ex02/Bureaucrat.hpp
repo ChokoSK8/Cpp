@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 09:59:37 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 11:26:53 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 13:38:30 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ class	Bureaucrat : public std::exception
 		int		getGrade(void) const;
 		void	increaseGrade(void);
 		void	decreaseGrade(void);
-		void	checkGrade(void);
+		void	checkGrade(void) const;
 		int		signForm(Form&) const;
 		void	canHeSigns(const Form&) const;
+		void	canHeExecute(const Form&) const;
+		void	executeForm(const Form&);
 
 		class	GradeTooHighException : virtual public exception
 		{

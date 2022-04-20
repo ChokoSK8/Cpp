@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:27:48 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 10:49:23 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 16:58:57 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class PresidentialPardonForm : virtual public Form
 		PresidentialPardonForm(const PresidentialPardonForm&);
 		~PresidentialPardonForm(void) throw();
 		PresidentialPardonForm&	operator=(const PresidentialPardonForm&);
-		int	checkExecGrade(int execGrade) const;
 		void	execAction(void) const;
 };
 

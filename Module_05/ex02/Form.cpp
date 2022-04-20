@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:57:30 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/24 16:53:36 by abrun            ###   ########.fr       */
+/*   Updated: 2022/03/07 14:15:51 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ Form::Form(void)
 	_signed = false;
 	_maxGrade = 150;
 	_minGrade = 0;
+	_target = "target";
+	_exec = 150;
 }
 
 Form::Form(std::string name, int grade)
@@ -27,11 +29,13 @@ Form::Form(std::string name, int grade)
 	std::cout << "Form setParam constructor called" <<std::endl;
 	try
 	{
-		_name= name;
+		_name = name;
 		_grade = grade;
 		_signed = false;
 		_maxGrade = 150;
 		_minGrade = 0;
+		_target = "target";
+		_exec = 150;
 		check_grade();
 	}
 	catch (std::exception& e)
@@ -48,8 +52,10 @@ Form::Form(const Form& ymir)
 		_name= ymir.getName();
 		_grade = ymir.getGrade();
 		_signed = ymir.getStatus();
-		_maxGrade = ymir._maxGrade;
-		_minGrade = ymir._minGrade;
+		_maxGrade = ymir.getMaxGrade();
+		_minGrade = ymir.getMinGrade();
+		_target = ymir.getTarget();
+		_exec = ymir.getExec();
 		check_grade();
 	}
 	catch (std::exception& e)
@@ -71,8 +77,10 @@ Form&	Form::operator=(const Form& ymir)
 		_name= ymir.getName();
 		_grade = ymir.getGrade();
 		_signed = ymir.getStatus();
-		_maxGrade = ymir._maxGrade;
-		_minGrade = ymir._minGrade;
+		_maxGrade = ymir.getMaxGrade();
+		_minGrade = ymir.getMinGrade();
+		_target = ymir.getTarget();
+		_exec = ymir.getExec();
 		check_grade();
 	}
 	catch (std::exception& e)
@@ -92,9 +100,29 @@ int	Form::getGrade(void) const
 	return (_grade);
 }
 
+int	Form::getMaxGrade(void) const
+{
+	return (_maxGrade);
+}
+
+int	Form::getMinGrade(void) const
+{
+	return (_minGrade);
+}
+
 bool	Form::getStatus(void) const
 {
 	return (_signed);
+}
+
+int	Form::getExec(void) const
+{
+	return (_exec);
+}
+
+std::string	Form::getTarget(void) const
+{
+	return (_target);
 }
 
 void	Form::beSigned(Bureaucrat &crat)
@@ -150,16 +178,6 @@ void	Form::checkBureaucratGrade(Bureaucrat const& executor) const
 		throw Bureaucrat::GradeTooLowException();
 }
 
-int	Form::checkExecGrade(int execGrade) const
-{
-	return (checkExecGrade(execGrade));
-}
-
-void	Form::execAction(void) const
-{
-	execAction();
-}
-
 const char*	Form::GradeTooHighException::what(void) const throw()
 {
 	return ("Form : The grade passed is too high");
@@ -173,6 +191,11 @@ const char*	Form::GradeTooLowException::what(void) const throw()
 const char*	Form::FormIsntSigned::what(void) const throw()
 {
 	return ("Form : The formulary isn't signed");
+}
+
+void	Form::toSign(void)
+{
+	this->_signed = true;
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form& formo)

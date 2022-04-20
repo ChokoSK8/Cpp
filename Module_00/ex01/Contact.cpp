@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:46:13 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/09 11:48:56 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 11:07:40 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,68 +20,72 @@ Contact::~Contact()
 {
 }
 
-void	Contact::init_contact()
+int	Contact::init_contact()
 {
-	setFirstName();
-	setLastName();
-	setNickname();
-	setPhoneNumber();
-	setDarkestSecret();
+	if (!setFirstName() || !setLastName() || !setNickname()
+		|| !setPhoneNumber() || !setDarkestSecret())
+		return (0);
+	return (1);
 }
 
-void	Contact::setFirstName()
+int	Contact::setFirstName()
 {
 	std::string	str;
 
+	if (std::cin.eof())
+		return (0);
 	std::cout << "Entrez first name : ";
 	std::cin >> str;
-	if (std::cin.eof())
-		exit (1);
 	this->first_name = str;
+	return (1);
 }
 
-void	Contact::setLastName()
+int	Contact::setLastName()
 {
 	std::string	str;
 
-	std::cout << "Entrez last name : ";
 	if (std::cin.eof())
-		exit (1);
+		return (0);
+	std::cout << "Entrez last name : ";
 	std::cin >> str;
 	this->last_name = str;
+	return (1);
 }
 
-void	Contact::setNickname()
+int	Contact::setNickname()
 {
 	std::string	str;
 
-	std::cout << "Entrez nickname : ";
 	if (std::cin.eof())
-		exit (1);
+		return (0);
+	std::cout << "Entrez nickname : ";
 	std::cin >> str;
 	this->nickname = str;
+	return (1);
 }
 
-void	Contact::setPhoneNumber()
+int	Contact::setPhoneNumber()
 {
 	std::string	str;
 
-	std::cout << "Entrez phone number : ";
 	if (std::cin.eof())
-		exit (1);
+		return (0);
+	std::cout << "Entrez phone number : ";
 	std::cin >> str;
 	this->phone_number = str;
+	return (1);
 }
 
-void	Contact::setDarkestSecret()
+int	Contact::setDarkestSecret()
 {
 	std::string	str;
 
-	std::cout << "Entrez darkest secret : ";
 	if (std::cin.eof())
-		exit (1);
+		return (0);
+	std::cout << "Entrez darkest secret : ";
 	std::cin >> str;
 	this->darkest_secret = str;
+	return (1);
 }
 
 std::string	Contact::getFirstName(void)

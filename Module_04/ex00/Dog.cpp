@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:47:30 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/23 14:02:35 by abrun            ###   ########.fr       */
+/*   Updated: 2022/02/27 12:25:18 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog(void):Animal("Dog")
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& ymir):Animal(ymir.getType())
+Dog::Dog(const Dog& ymir):Animal(ymir)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 }

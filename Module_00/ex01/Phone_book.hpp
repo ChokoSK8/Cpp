@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 17:09:57 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/25 13:23:11 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 10:38:28 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ class	Phone_book
 		~Phone_book();
 
 		void	init_n_contact();
-		void	search_contact();
-		void	ask_for_index();
-		void	add_contact();
+		int	search_contact();
+		int	ask_for_index();
+		int	add_contact();
 		void	setIndex(int n);
 		int		getIndex();
 };

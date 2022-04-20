@@ -6,11 +6,18 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:18:05 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 16:53:39 by abrun            ###   ########.fr       */
+/*   Updated: 2022/03/07 14:16:24 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat(void)
+{
+	std::cout << "Bureaucrat default constructor called" << std::endl;
+	_name = "Antoine";
+	_grade = 150;
+}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
 {
@@ -27,9 +34,40 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 	}
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat& ymir)
+{
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	try
+	{
+		_name = ymir.getName();
+		_grade = ymir.getGrade();
+		checkGrade();
+	}
+	catch (std::exception const& e)
+	{
+		std::cout << "ERREUR : " << e.what() << std::endl;
+	}
+}
+
 Bureaucrat::~Bureaucrat(void) throw()
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat default destructor called" << std::endl;
+}
+
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ymir)
+{
+	std::cout << "Bureaucrat copy assignment constructor called" << std::endl;
+	try
+	{
+		_name = ymir.getName();
+		_grade = ymir.getGrade();
+		checkGrade();
+	}
+	catch (std::exception const& e)
+	{
+		std::cout << "ERREUR : " << e.what() << std::endl;
+	}
+	return (*this);
 }
 
 const char*	Bureaucrat::GradeTooHighException::what(void) const throw()
@@ -79,29 +117,32 @@ int	Bureaucrat::signForm(Form& formo) const
 	formo_grade = formo.getGrade();
 	if (crat_grade < 1 || crat_grade > 150)
 	{
-		std::cout << getName() << " cannot sign because his grade isn't valided" << std::endl;
-		return (0);
+		std::cout << getName() << " couldn't sign " << formo.getName() << " because the bureaucrat grade isn't valided" << std::endl;
 	}
 	else if (formo_grade < 1 || formo_grade > 150)
 	{
-		std::cout << getName() << " cannot sign because "
-			<< formo.getName() << "'s grade isn't valided" << std::endl;
-		return (0);
+		std::cout << getName() << " couldn't sign " << formo.getName() << " because " << formo.getName() << "'s grade isn't valided" << std::endl;
 	}
 	else if (formo.getStatus())
 	{
-		std::cout << getName() << " cannot sign because the form is already signed"
-			<< std::endl;
-		return (0);
+		std::cout << getName() << " couldn't sign " << formo.getName() << " because the form is already signed" << std::endl;
 	}
 	else if (crat_grade > formo_grade)
 	{
-		std::cout << getName() << " cannot sign because his grade is too low"
-			<< std::endl;
-		throw Form::GradeTooHighException();
+		std::cout << getName() << " couldn't sign " << formo.getName() << " because the bureaucrat grade is too low" << std::endl;
 	}
-	std::cout << getName() << " signs " << formo.getName() << std::endl;
+	else
+	{
+		std::cout << getName() << " signed " << formo.getName() << std::endl;
+		formo.toSign();
+	}
 	return (1);
+}
+
+void	Bureaucrat::canHeSigns(const Form& formo) const
+{
+	if (this->_grade > formo.getGrade())
+		throw GradeTooLowException();
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& crat)

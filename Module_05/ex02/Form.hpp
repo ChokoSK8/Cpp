@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:21:27 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/24 16:58:36 by abrun            ###   ########.fr       */
+/*   Updated: 2022/03/07 14:16:37 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@ class	Form : virtual public std::exception
 {
 	private:
 		std::string	_name;
-		int		_grade;
 		int		_maxGrade;
 		int		_minGrade;
-		bool	_signed;
+
+	protected:
+		bool		_signed;
+		int		_grade;
+		std::string	_target;
+		int		_exec;
 
 	public:
 		Form(void);
@@ -33,14 +37,19 @@ class	Form : virtual public std::exception
 		Form&	operator=(const Form&);
 		std::string	getName(void) const;
 		int		getGrade(void) const;
+		int		getMaxGrade(void) const;
+		int		getMinGrade(void) const;
 		bool	getStatus(void) const;
+		std::string	getTarget(void) const;
+		int		getExec(void) const;
 		void	beSigned(Bureaucrat&);
 		void	check_grade(void);
 		void	execute(Bureaucrat const&) const;
 		void	checkSignature(void) const;
 		void	checkBureaucratGrade(Bureaucrat const&) const;
-		virtual int		checkExecGrade(int execGrade) const;
-		virtual void	execAction(void) const;
+		void	toSign(void);
+		virtual int		checkExecGrade(int execGrade) const = 0;
+		virtual void	execAction(void) const = 0;
 
 		class	GradeTooHighException : virtual public std::exception
 		{

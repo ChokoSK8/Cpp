@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:18:05 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/24 16:20:24 by abrun            ###   ########.fr       */
+/*   Updated: 2022/03/07 10:05:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& ymir)
 
 Bureaucrat::~Bureaucrat(void) throw()
 {
+	std::cout << "Bureaucrat default destructor called" << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ymir)

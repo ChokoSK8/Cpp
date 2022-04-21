@@ -19,25 +19,17 @@ int	checkIfInt(std::string arg)
 	return (ERROR);
 }
 
-int	checkIfChar(std::string arg)
-{
-	int	n;
-
-	std::stringstream(arg) >> n;
-	if (n >= 0 && n <= 127)
-		return (SUCCESS);
-	return (ERROR);
-}
-
 int	checkIfDouble(std::string arg)
 {
 	size_t	pos;
 	long double	n;
 
+	if (arg == "nan" || arg == "-inf" || arg == "+inf")
+		return (SUCCESS);
 	pos = arg.find_first_of(".");
 	if (pos == 0)
 		return (ERROR);
-	if (arg.find_first_not_of("0123456789") == std::string::npos)
+	if (arg.find_first_not_of("0123456789", pos) == std::string::npos)
 	{
 		std::stringstream(arg) >> n;
 		if (n <= std::numeric_limits<double>::max()
@@ -47,18 +39,53 @@ int	checkIfDouble(std::string arg)
 	return (ERROR);
 }
 
+int	checkIfFloat(std::string arg)
+{
+	size_t	pos;
+	long double	n;
+
+	if (arg == "nanf" || arg == "-inff" || arg == "+inff")
+		return (SUCCESS);
+	pos = arg.find_first_of(".");
+	if (pos == 0)
+		return (ERROR);
+	if (arg.find_first_not_of("0123456789", pos + 1) == arg.length() - 1
+		&& arg.find_first_of("f") == arg.length() - 1)
+	{
+		std::stringstream(arg) >> n;
+		if (n <= std::numeric_limits<float>::max()
+			&& n >= std::numeric_limits<float>::min())
+			return (SUCCESS);
+	}
+	return (ERROR);
+}
+
+int	checkIfChar(std::string arg)
+{
+	int	n;
+
+	if (arg.length() != 1)
+		return (ERROR);
+	std::stringstream(arg) >> n;
+	if (n >= 0 && n <= 127)
+		return (SUCCESS);
+	return (ERROR);
+}
+
 std::string	getConvertedType(std::string arg)
 {
 	std::string	type;
 
 	if (checkIfInt(arg))
 		type = "int";
-	else if (checkIfChar(arg))
-		type = "char";
 	else if (checkIfDouble(arg))
 		type = "double";
-	/*else if (checkIfFloat(arg))
-		type = "float";*/
+	else if (checkIfFloat(arg))
+		type = "float";
+	else if (checkIfChar(arg))
+		type = "char";
+	else
+		type = "undisplayable";
 	return (type);
 }
 

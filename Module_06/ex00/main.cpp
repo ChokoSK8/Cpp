@@ -12,7 +12,7 @@ int	checkIfInt(std::string arg)
 	if (arg.find_first_not_of("0123456789-+") == std::string::npos)
 	{
 		std::stringstream(arg) >> n;
-		if (n <= std::numeric_limits<int>::min()
+		if (n <= std::numeric_limits<int>::max()
 			&& n >= std::numeric_limits<int>::min())
 			return (SUCCESS);
 	}

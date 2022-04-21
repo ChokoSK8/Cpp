@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:57:30 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/20 17:00:02 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/21 13:24:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,7 @@ void	Form::execute(Bureaucrat const& executor) const
 		checkSignature();
 		executor.checkGrade();
 		executor.canHeExecute(*this);
+		std::cout << executor.getName() << " execute " << getTarget() << std::endl;
 		execAction();
 	}
 	catch (std::exception& e)

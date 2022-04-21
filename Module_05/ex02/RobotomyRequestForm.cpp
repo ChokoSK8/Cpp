@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:31:52 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/20 17:41:19 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/21 13:06:53 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	RobotomyRequestForm::execAction(void) const
 	if (i)
 	{
 		std::cout << "Zooooouuuww zoooouuuuuw" << std::endl;
-		std::cout << _target << " has been robotomized" << std::endl;
+		std::cout << getTarget() << " has been robotomized" << std::endl;
 	}
 	else
 	{
-		std::cout << "The robotomisation of " << _target << " has failed" << std::endl;
+		std::cout << "The robotomisation of " << getTarget() << " has failed" << std::endl;
 	}
 }
 

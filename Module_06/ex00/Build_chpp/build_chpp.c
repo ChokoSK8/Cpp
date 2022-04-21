@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:23:24 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/03 14:54:28 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/21 15:12:24 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	build_hpp(char *class)
 	if (!cap)
 		exit(2);
 	free(hpp);
-	ft_printf_fd(fd, "#ifndef %s_HPP\n# define %s_HPP\n# include <string>\n# include <iostream>\n\nclass	%s\n{\n\t\tprivate:\n\n\t\tpublic:\n\t\t\t%s(void);\n\t\t\t~%s(void);\n};\n#endif", cap, cap, class, class, class, class);
+	ft_printf_fd(fd, "#ifndef %s_HPP\n# define %s_HPP\n# include <string>\n# include <iostream>\n\nclass	%s\n{\n\tprivate:\n\n\tpublic:\n\t\t%s(void);\n\t\t%s(const &);\n\t\t~%s(void);\n\t\t%s &operator=(const &);\n};\n#endif", cap, cap, class, class, class, class, class, class);
 	close(fd);
 	free(cap);
 }
@@ -45,7 +45,7 @@ void	build_cpp(char *class)
 	if (fd < 0)
 		exit(2);
 	free(cpp);
-	ft_printf_fd(fd, "#include \"%s.hpp\"\n\n%s::%s(void)\n{\n\tstd::cout << \"%s default constructor called\" << std::endl;\n}\n\n%s::~%s(void)\n{\n\tstd::cout << \"%s destructor called\" << std::endl;\n}", class, class, class, class, class, class, class);
+	ft_printf_fd(fd, "#include \"%s.hpp\"\n\n%s::%s(void)\n{\n\tstd::cout << \"%s default constructor called\" << std::endl;\n}\n\n%s::%s(const %s& ymir)\n{\n\tstd::cout << \"%s copy constructor called\" << std::endl;\n}\n\n%s::~%s(void)\n{\n\tstd::cout << \"%s destructor called\" << std::endl;\n}\n\n%s&\t%s::operator=(const %s& ymir)\n{\n\tstd::cout << \"%s copy assignement constructor called\" << std::endl;\n}", class, class, class, class, class, class, class, class, class, class, class, class, class, class);
 	close(fd);
 }
 

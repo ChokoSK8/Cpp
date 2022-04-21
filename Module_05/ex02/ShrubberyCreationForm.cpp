@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:36:29 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/20 17:38:30 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/21 13:24:10 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	ShrubberyCreationForm::execAction(void) const
 
 	std::ofstream outfile;
 	outfile.open(f.c_str(), std::ofstream::out | std::ofstream::app);
+	if (!outfile.is_open())
+		std::cout << "The file " + f + " failed to open" << std::endl;
 	outfile << _tree << std::endl;
 	outfile.close();
 }

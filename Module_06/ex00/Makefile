@@ -1,6 +1,6 @@
 NAME	= convert
 
-SRCS	= main.cpp Conv.cpp
+SRCS	= main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -10,13 +10,13 @@ INC		= -I includes/
 
 RM		= rm -rf
 
-%.o: %.c
-		clang++ $(FLAGS) $(INC) -o $@ -c $?
+%.o: %.cpp
+		c++ $(FLAGS) $(INC) -o $@ -c $?
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-				clang++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
+		c++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
 
 clean:
 		$(RM) $(OBJS)

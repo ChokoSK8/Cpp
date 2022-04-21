@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:28:16 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/20 17:38:20 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/21 13:22:47 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@
 
 int	main()
 {
-	std::cout << "   --------------Shrubbery tests--------------" << std::endl;
+	std::cout << "   --------------Shrubbery tests--------------\n" << std::endl;
 
 	Bureaucrat	*Sheldon = new Bureaucrat("Sheldon", 3);
 	Bureaucrat	*Howe = new Bureaucrat("Howe", -45);
-	Bureaucrat	*Rajesh = new Bureaucrat("Rajesh", 120);
+	Bureaucrat	*Rajesh = new Bureaucrat("Rajesh", 150);
 	ShrubberyCreationForm	*Penny = new ShrubberyCreationForm("Penny");
 
 	std::cout << *Sheldon << std::endl;
 	std::cout << *Howe << std::endl;
 	std::cout << *Rajesh << std::endl;
 	std::cout << *Penny << std::endl;
+	Penny->execute(*Rajesh);
+	Rajesh->executeForm(*Penny);
+	Rajesh->signForm(*Penny);
 	Sheldon->signForm(*Penny);
 	Howe->signForm(*Penny);
-	Rajesh->signForm(*Penny);
-	Howe->signForm(*Penny);
+	std::cout << *Penny << std::endl;
 	Penny->execute(*Sheldon);
 	Penny->execute(*Howe);
 	Penny->execute(*Rajesh);
@@ -41,7 +43,7 @@ int	main()
 	Howe->executeForm(*Penny);
 	delete Penny;
 
-	std::cout << "   --------------Robotomy tests--------------" << std::endl;
+	std::cout << "\n\n   --------------Robotomy tests--------------\n" << std::endl;
 
 	RobotomyRequestForm	*Bernadette = new RobotomyRequestForm("Bernadette");
 
@@ -49,10 +51,12 @@ int	main()
 	std::cout << *Howe << std::endl;
 	std::cout << *Rajesh << std::endl;
 	std::cout << *Bernadette << std::endl;
+	Bernadette->execute(*Rajesh);
+	Rajesh->executeForm(*Bernadette);
+	Rajesh->signForm(*Bernadette);
 	Sheldon->signForm(*Bernadette);
 	Howe->signForm(*Bernadette);
-	Rajesh->signForm(*Bernadette);
-	Howe->signForm(*Bernadette);
+	std::cout << *Bernadette << std::endl;
 	Bernadette->execute(*Sheldon);
 	Bernadette->execute(*Howe);
 	Bernadette->execute(*Rajesh);
@@ -61,7 +65,7 @@ int	main()
 	Howe->executeForm(*Bernadette);
 	delete Bernadette;
 
-	std::cout << "   --------------Robotomy tests--------------" << std::endl;
+	std::cout << "\n\n   --------------Robotomy tests--------------\n" << std::endl;
 
 	PresidentialPardonForm	*Amy = new PresidentialPardonForm("Amy");
 
@@ -69,18 +73,21 @@ int	main()
 	std::cout << *Howe << std::endl;
 	std::cout << *Rajesh << std::endl;
 	std::cout << *Amy << std::endl;
-	Sheldon->signForm(*Amy);
-	Howe->signForm(*Amy);
+	Amy->execute(*Rajesh);
+	Rajesh->executeForm(*Amy);
 	Rajesh->signForm(*Amy);
 	Howe->signForm(*Amy);
-	Amy->execute(*Sheldon);
+	Sheldon->signForm(*Amy);
+	std::cout << *Amy << std::endl;
 	Amy->execute(*Howe);
 	Amy->execute(*Rajesh);
+	Amy->execute(*Sheldon);
 	Rajesh->executeForm(*Amy);
 	Sheldon->executeForm(*Amy);
 	Howe->executeForm(*Amy);
 	delete Amy;
 	delete Sheldon;
+	delete Rajesh;
 	delete Howe;
 	return (0);
 }

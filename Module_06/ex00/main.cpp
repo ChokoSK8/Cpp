@@ -2,10 +2,11 @@
 # include <sstream>
 # include <string>
 # include <limits>
+# include "Convertor.hpp"
 # define SUCCESS 1
 # define ERROR 0
 
-int	checkIfInt(std::string arg)
+std::string	checkIfInt(std::string arg)
 {
 	long long int	n;
 
@@ -14,78 +15,77 @@ int	checkIfInt(std::string arg)
 		std::stringstream(arg) >> n;
 		if (n <= std::numeric_limits<int>::max()
 			&& n >= std::numeric_limits<int>::min())
-			return (SUCCESS);
+			return ("int");
 	}
-	return (ERROR);
+	return ("");
 }
 
-int	checkIfDouble(std::string arg)
+std::string	checkIfDouble(std::string arg)
 {
 	size_t	pos;
 	long double	n;
 
 	if (arg == "nan" || arg == "-inf" || arg == "+inf")
-		return (SUCCESS);
+		return ("doubleSpe");
 	pos = arg.find_first_of(".");
-	if (pos == 0)
-		return (ERROR);
-	if (arg.find_first_not_of("0123456789", pos) == std::string::npos)
+	if (pos == 0 || pos == std::string::npos)
+		return ("");
+	if (arg.find_first_not_of("0123456789", pos + 1) == std::string::npos)
 	{
 		std::stringstream(arg) >> n;
 		if (n <= std::numeric_limits<double>::max()
-			&& n >= std::numeric_limits<double>::min())
-			return (SUCCESS);
+			&& n >= -1.79769e+308) 
+			return ("double");
 	}
-	return (ERROR);
+	return ("");
 }
 
-int	checkIfFloat(std::string arg)
+std::string	checkIfFloat(std::string arg)
 {
 	size_t	pos;
 	long double	n;
 
 	if (arg == "nanf" || arg == "-inff" || arg == "+inff")
-		return (SUCCESS);
+		return ("floatSpe");
 	pos = arg.find_first_of(".");
 	if (pos == 0)
-		return (ERROR);
+		return ("");
 	if (arg.find_first_not_of("0123456789", pos + 1) == arg.length() - 1
 		&& arg.find_first_of("f") == arg.length() - 1)
 	{
 		std::stringstream(arg) >> n;
 		if (n <= std::numeric_limits<float>::max()
-			&& n >= std::numeric_limits<float>::min())
-			return (SUCCESS);
+			&& n >= -1.17549e+38)
+			return ("float");
 	}
-	return (ERROR);
+	return ("");
 }
 
-int	checkIfChar(std::string arg)
+std::string	checkIfChar(std::string arg)
 {
 	int	n;
 
 	if (arg.length() != 1)
-		return (ERROR);
+		return ("");
 	std::stringstream(arg) >> n;
 	if (n >= 0 && n <= 127)
-		return (SUCCESS);
-	return (ERROR);
+		return ("char");
+	return ("");
 }
 
 std::string	getConvertedType(std::string arg)
 {
 	std::string	type;
 
-	if (checkIfInt(arg))
-		type = "int";
-	else if (checkIfDouble(arg))
-		type = "double";
-	else if (checkIfFloat(arg))
-		type = "float";
-	else if (checkIfChar(arg))
-		type = "char";
-	else
-		type = "undisplayable";
+	type = checkIfInt(arg);
+	if (!type.length())
+		type = checkIfDouble(arg);
+	if (!type.length())
+		type = checkIfFloat(arg);
+	if (!type.length())
+		type = checkIfChar(arg);
+	if (!type.length())
+		type = "none";
 	return (type);
 }
 
@@ -97,5 +97,8 @@ int	main(int ac, char **av)
 		return (1);
 	type = getConvertedType(std::string(av[1]));
 	std::cout << "Type : " + type << std::endl;
+	Convertor	*conv = new Convertor(type, std::string(av[1]));
+	std::cout << *conv << std::endl;
+	delete conv;
 	return (0);
 }

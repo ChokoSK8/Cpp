@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 20:09:45 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/29 13:37:42 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/25 15:29:37 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int	main()
 	std::cout << "b is " << b.toInt() << " as integrer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integrer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integrer" << std::endl;
+
+	std::cout << "a is " << a.toFloat() << " as float" << std::endl;
+	std::cout << "b is " << b.toFloat() << " as float" << std::endl;
+	std::cout << "c is " << c.toFloat() << " as float" << std::endl;
+	std::cout << "d is " << d.toFloat() << " as float" << std::endl;
 
 	return (0);
 }

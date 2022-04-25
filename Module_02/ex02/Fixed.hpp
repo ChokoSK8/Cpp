@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 19:38:15 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/16 15:33:15 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/25 15:41:51 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,18 @@ class	Fixed
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
-		static Fixed& min(Fixed&);
-		static Fixed& max(Fixed&);
+		Fixed&	min(Fixed&, Fixed&);
+		Fixed&	max(Fixed&, Fixed&);
+		static const Fixed& min(const Fixed& fixe_a, const Fixed& fixe_b){
+			if (fixe_a.getRawBits() < fixe_b.getRawBits())
+				return (fixe_a);
+			return (fixe_b);
+		};
+		static const Fixed& max(const Fixed& fixe_a, const Fixed& fixe_b){
+			if (fixe_a.getRawBits() > fixe_b.getRawBits())
+				return (fixe_a);
+			return (fixe_b);
+		};
 };
 
 int	operator>(const Fixed &fixe_a, const Fixed &fixe_b);

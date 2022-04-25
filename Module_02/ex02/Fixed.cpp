@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 19:47:54 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/16 15:33:12 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/25 15:40:09 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,20 @@ Fixed&	Fixed::operator--(void)
 	return (*this);
 }
 
+Fixed&	Fixed::min(Fixed &fixe_a, Fixed &fixe_b)
+{
+	if (fixe_a.getRawBits() < fixe_b.getRawBits())
+		return (fixe_a);
+	return (fixe_b);
+}
+
+Fixed&	Fixed::max(Fixed &fixe_a, Fixed &fixe_b)
+{
+	if (fixe_a.getRawBits() > fixe_b.getRawBits())
+		return (fixe_a);
+	return (fixe_b);
+}
+
 Fixed	Fixed::operator++(int)
 {
 	++this->_raw;
@@ -85,26 +99,11 @@ Fixed	Fixed::operator--(int)
 	return (*this);
 }
 
-Fixed	min(const Fixed &fixe_a, const Fixed &fixe_b)
-{
-	if (fixe_a.getRawBits() < fixe_b.getRawBits())
-		return (fixe_a);
-	return (fixe_b);
-}
-
-Fixed	max(const Fixed &fixe_a, const Fixed &fixe_b)
-{
-	if (fixe_a.getRawBits() > fixe_b.getRawBits())
-		return (fixe_a);
-	return (fixe_b);
-}
-
 Fixed::Fixed(const int n)
 {
 	this->_raw = n << _bits;
 }
 
-//	1 << _bits : on décale à gauche de _bits la representation par bits de 1
 Fixed::Fixed(const float n)
 {
 	this->_raw = roundf(n * (1 << _bits));

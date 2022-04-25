@@ -1,4 +1,4 @@
-NAME	= convert
+NAME	= typeinfo
 
 SRCS	= main.cpp Base.cpp A.cpp B.cpp C.cpp
 

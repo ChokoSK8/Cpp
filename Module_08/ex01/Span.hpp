@@ -9,7 +9,7 @@ class	Span
 	private:
 		unsigned int		_size;
 		const unsigned int	_maxSize;
-		int			_tab[_maxSize];
+		const int		_tab[_maxSize];
 
 	public:
 		Span(void);

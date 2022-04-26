@@ -13,6 +13,7 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
+    std::cout << numbers << std::endl;
     //SCOPE
     {
         Array<int> tmp = numbers;
@@ -27,6 +28,7 @@ int main(int, char**)
             return 1;
         }
     }
+    std::cout << "HEY" << std::endl;
     try
     {
         numbers[-2] = 0;
@@ -35,6 +37,7 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
+    std::cout << "HEY" << std::endl;
     try
     {
         numbers[MAX_VAL] = 0;

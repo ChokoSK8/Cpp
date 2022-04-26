@@ -2,27 +2,32 @@ NAME	= array
 
 SRCS	= main.cpp
 
+INCLUDE	= Array.hpp
+
 OBJS	= $(SRCS:.cpp=.o)
 
-FLAGS	= -Wall -Werror -Wextra -std=c++98
+DEP	= $(OBJS:.o=.d)
 
-INC		= -I includes/
+FLAGS	= -Wall -Werror -Wextra -MMD -MP -std=c++98
 
 RM		= rm -rf
 
 %.o: %.cpp
-		c++ $(FLAGS) $(INC) -o $@ -c $?
+		c++ $(FLAGS) $(INC) -c $< -I .
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
 		c++ $(FLAGS) $(INC) $(OBJS) -o $(NAME)
 
+-include $(DEP)
+
 clean:
 		$(RM) $(OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)
+			$(RM) $(DEP)
 
 re:			fclean all
 

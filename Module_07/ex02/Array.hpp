@@ -8,16 +8,16 @@
 template <typename T>
 class	Array
 {
-	private:
-		T*	_elements;
-		unsigned int	_size;
+	T*	_elements;
+	unsigned int	_size;
 
 	public:
 		Array(void);
 		Array(unsigned int);
 		Array(const Array&);
 		~Array(void);
-		Array &operator=(const Array&);
+		Array	&operator=(const Array&);
+		T	&operator[](unsigned int) const;
 		unsigned int	size(void) const;
 };
 
@@ -45,7 +45,7 @@ Array<T>::Array(const Array& ymir)
 	std::cout << "Array copy constructor called" << std::endl;
 	_elements = new T[len];
 	for (unsigned int i = 0; i < len; i++)
-		_elements[i] = ymir->_elements[i];
+		_elements[i] = ymir._elements[i];
 	_size = len;
 }
 
@@ -65,8 +65,16 @@ Array<T>&	Array<T>::operator=(const Array<T>& ymir)
 	std::cout << "Array copy assignement constructor called" << std::endl;
 	_elements = new T[len];
 	for (unsigned int i = 0; i < len; i++)
-		_elements[i] = ymir->_elements[i];
+		_elements[i] = ymir._elements[i];
 	_size = len;
+}
+
+template <typename T>
+T&	Array<T>::operator[](unsigned int i) const
+{
+	if (i < 0 || i >= size())
+		throw std::out_of_range("SEGFAULT");
+	return (_elements[i]);
 }
 
 template <typename T>
@@ -80,21 +88,13 @@ std::ostream& operator<<(std::ostream& os, const Array<T>& tab)
 {
         unsigned int	size = tab.size();
 
-	try
+	os << "Array size : " << size << "\nElements :\n";
+       	for(unsigned int i = 0; i < size; i++)
 	{
-		os << "Array size : " << size << "\nElements :\n";
-       		for(unsigned int i = 0; i < size; i++)
-		{
-			if (i != size - 1)
-				os << tab[i] << "; ";
-			else
-				os << tab[i];
-		}
-	}
-	catch (std::exception& e)
-	{
-		(void)e;
-		std::cout << "SEGFAULT" << std::endl;
+		if (i != size - 1)
+			os << tab[i] << "; ";
+		else
+			os << tab[i];
 	}
 	return (os);
 }

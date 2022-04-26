@@ -8,6 +8,7 @@ Span::Span(void) : _size(0), _maxSize(0)
 Span::Span(unsigned int n) : _size(0), _maxSize(n)
 {
 	std::cout << "Span setParam constructor called" << std::endl;
+	_tab = 
 }
 
 Span::Span(const Span& ymir) : _size(ymir.size()), _maxSize(ymir.MaxSize())
@@ -52,18 +53,27 @@ void	Span::addNumber(unsigned int n)
 
 unsigned int	Span::shortestSpan(void) const
 {
-	unsigned int	shortest;
+	unsigned int	shortest = std::numeric_limits<unsigned int>::max();
+	unsigned int	dist;
 
 	try
 	{
 		if (_size < 2)
 			throw SizeTooSmall();
-		Span	tmp = *this;
+		for(int i = 0; i < _size - 1; i++)
+		{
+			for(int j = i + 1; j < _size; j++)
+			{
+				dist = dist(_tab[i] - _tab[j]);
+				shortest = min(shortest, dist);
+			}
+		}
 	}
 	catch (std::exception& e)
 	{
 		std::cout << "ERREUR : " << e.what() << std::endl;
 	}
+	return (shortest);
 }
 
 const char*	Span::SizeTooSmall::what(void) const throw()

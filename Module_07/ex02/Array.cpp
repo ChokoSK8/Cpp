@@ -55,6 +55,23 @@ unsigned int	Array<T>::size(void) const
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const Array<T>& tab)
 {
-	os << "Array size : " << tab.size();
+        unsigned int	size = tab.size();
+
+	try
+	{
+		os << "Array size : " << size << "\nElements :\n";
+       		for(unsigned int i = 0; i < size; i++)
+		{
+			if (i != size - 1)
+				os << tab[i] << "; ";
+			else
+				os << tab[i];
+		}
+	}
+	catch (std::exception& e)
+	{
+		(void)e;
+		std::cout << "SEGFAULT" << std::endl;
+	}
 	return (os);
 }

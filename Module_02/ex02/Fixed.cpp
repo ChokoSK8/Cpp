@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 19:47:54 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/25 15:40:09 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/26 11:57:11 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,18 @@ Fixed&	Fixed::operator-(const Fixed &fixe_a)
 	return (*this);
 }
 
-Fixed&	Fixed::operator++(void)
+Fixed	Fixed::operator++(int)
 {
+	Fixed*	tmp = new Fixed(*this);
 	this->_raw++;
-	return (*this);
+	return (*tmp);
 }
 
-Fixed&	Fixed::operator--(void)
+Fixed	Fixed::operator--(int)
 {
+	Fixed*	tmp = new Fixed(*this);
 	this->_raw--;
-	return (*this);
+	return (*tmp);
 }
 
 Fixed&	Fixed::min(Fixed &fixe_a, Fixed &fixe_b)
@@ -87,13 +89,13 @@ Fixed&	Fixed::max(Fixed &fixe_a, Fixed &fixe_b)
 	return (fixe_b);
 }
 
-Fixed	Fixed::operator++(int)
+Fixed&	Fixed::operator++(void)
 {
 	++this->_raw;
 	return (*this);
 }
 
-Fixed	Fixed::operator--(int)
+Fixed&	Fixed::operator--(void)
 {
 	--this->_raw;
 	return (*this);

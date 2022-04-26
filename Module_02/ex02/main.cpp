@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 20:09:45 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/25 15:43:35 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/26 12:01:26 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main()
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "a++ is " << a++ << std::endl;
-	std::cout << "++a is " << ++a << std::endl;
 	std::cout << "++a is " << ++a << std::endl;
 	std::cout << "--a is " << --a << std::endl;
 	std::cout << "a-- is " << a-- << std::endl;
@@ -68,6 +67,11 @@ int	main()
 		std::cout << "No" << std::endl;
 	std::cout << "Is a equal to b ?" << std::endl;
 	if (a == b)
+		std::cout << "Yes" << std::endl;
+	else
+		std::cout << "No" << std::endl;
+	std::cout << "Is a equal to d ?" << std::endl;
+	if (a == d)
 		std::cout << "Yes" << std::endl;
 	else
 		std::cout << "No" << std::endl;

@@ -4,13 +4,14 @@
 # include <iostream>
 # include <exception>
 # include <limits>
+# include <vector>
 
 class	Span
 {
 	private:
-		unsigned int		_size;
-		const unsigned int	_maxSize;
-		const int*		_tab;
+		unsigned int	_size;
+		unsigned int	_maxSize;
+		std::vector<int>	_tab;
 
 	public:
 		Span(void);
@@ -19,10 +20,11 @@ class	Span
 		~Span(void);
 		Span &operator=(const Span&);
 		void	addNumber(unsigned int);
-		unsigned int	size(void) const;
-		unsigned int	maxSize(void) const;
-		unsigned int	shortestSpan(void) const;
-		unsigned int	longestSpan(void) const;
+		unsigned int	getSize(void) const;
+		unsigned int	getMaxSize(void) const;
+		std::vector<int>	getTab(void) const;
+		unsigned int	shortestSpan(void);
+		unsigned int	longestSpan(void);
 
 		class	SizeTooSmall : virtual public std::exception
 		{
@@ -32,24 +34,6 @@ class	Span
 };
 
 std::ostream& operator<<(std::ostream&, const Span&);
-
-unsigned int	min(unsigned int a, unsigned int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-unsigned int	dist(int a, int b)
-{
-	int	dist;
-	if (a < 0)
-		a *= -1;
-	if (b < 0)
-		b *= -1;
-	dist = a - b;
-	if (dist < 0)
-		return (-dist);
-	return (dist);
-}
+unsigned int	ft_min(unsigned int a, unsigned int b);
+unsigned int	dist(int a, int b);
 #endif

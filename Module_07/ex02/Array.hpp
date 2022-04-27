@@ -8,7 +8,7 @@
 template <typename T>
 class	Array
 {
-	T*	_elements;
+	T*		_elements;
 	unsigned int	_size;
 
 	public:

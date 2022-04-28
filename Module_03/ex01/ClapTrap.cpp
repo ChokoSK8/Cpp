@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:11:49 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/28 12:57:25 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 17:02:08 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	ClapTrap::attack(std::string const &target)
 {
 	if (this->_energy_points <= 0 || this->_hitpoints <= 0)
 	{
-		std::cout << "ClapTrap " << this->getName()
-		<< "is too weak to repair" << std::endl;
+		std::cout << "ClapTrap " << this->_name
+		<< " is too weak to repair" << std::endl;
 	}
 	else
 	{
@@ -69,6 +69,7 @@ void	ClapTrap::attack(std::string const &target)
 		<< ", causing " << this->_attack_damage << " points of damage !"
 		<< std::endl;
 	}
+	std::cout << _name << " has " << _energy_points << " energy_points remaining" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -76,14 +77,15 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "ClapTrap " << this->_name << " takes " << amount
 		<< " amounts of damage !" << std::endl;
 	this->_hitpoints -= amount;
+	std::cout << _name << " has " << _hitpoints << " _hitpoints and " << _energy_points << " energy_points remaining" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energy_points <= 0)
 	{
-		std::cout << "ClapTrap " << this->getName()
-		<< "is too weak to repair" << std::endl;
+		std::cout << "ClapTrap " << this->_name
+		<< " is too weak to repair" << std::endl;
 	}
 	else
 	{
@@ -93,55 +95,5 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		<< amount << " points !" << std::endl;
 	}
 	this->_hitpoints += amount;
-}
-
-void	ClapTrap::decreaseEnergyPoints(void)
-{
-	this->_energy_points -= 1;
-}
-
-void	ClapTrap::setName(std::string n)
-{
-	this->_name = n;
-}
-
-void	ClapTrap::setHitpoints(int n)
-{
-	this->_hitpoints = n;
-}
-
-void	ClapTrap::setEnergyPoints(int n)
-{
-	this->_energy_points = n;
-}
-
-void	ClapTrap::setAttackDamage(int n)
-{
-	this->_attack_damage = n;
-}
-
-std::string	ClapTrap::getName(void) const
-{
-	return (this->_name);
-}
-
-int	ClapTrap::getHitpoints(void) const
-{
-	return (this->_hitpoints);
-}
-
-int	ClapTrap::getEnergyPoints(void) const
-{
-	return (this->_energy_points);
-}
-
-int	ClapTrap::getAttackDamage(void) const
-{
-	return (this->_attack_damage);
-}
-
-std::ostream& operator<<(std::ostream& os, const ClapTrap& trap)
-{
-	os << "ClapTrap :\n\t_name : " << trap.getName() << "\n\t_hitpoins : " << trap.getHitpoints() << "\n\t_energy_points : " << trap.getEnergyPoints() << "\n\t_attack_damage : " << trap.getAttackDamage();
-	return (os);
+	std::cout << _name << " has " << _hitpoints << " _hitpoints and " << _energy_points << " energy_points remaining" << std::endl;
 }

@@ -1,18 +1,27 @@
 # include "MutantStack.hpp"
 
-int	main(void)
+int main()
 {
-	MutantStack<std::string>	stk;
-	std::vector<int, >	vec;
-
-	stk.push("Hello");
-	stk.push("World");
-	stk.push("War");
-	while (!stk.empty())
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
 	{
-		std::cout << stk.top() << std::endl;
-		std::cout << stk.size() << std::endl;
-		stk.pop();
+		std::cout << *it << std::endl;
+		++it;
 	}
-	return (0);
+	std::stack<int> s(mstack);
+	return(0);
 }

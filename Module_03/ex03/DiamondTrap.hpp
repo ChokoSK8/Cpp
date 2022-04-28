@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:15:25 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 17:42:29 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 13:09:16 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class	DiamondTrap : public FragTrap, public ScavTrap
 		std::string _name;
 
 	public:
+		DiamondTrap(void);
 		DiamondTrap(std::string name);
 		DiamondTrap(const DiamondTrap&);
 		~DiamondTrap(void);

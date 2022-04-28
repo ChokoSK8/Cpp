@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:55:54 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 17:07:58 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 13:10:46 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class	ScavTrap : virtual public ClapTrap
 {
 	public:
+		ScavTrap(void);
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap&);
 		~ScavTrap(void);

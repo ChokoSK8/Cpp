@@ -6,19 +6,21 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:58:30 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 17:00:51 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 12:58:33 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name)
+ScavTrap::ScavTrap(void): ClapTrap("scaver", 100, 50, 20)
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;
-	this->setHitpoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+	std::cout << "ScavTrap default destructor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name):ClapTrap(name, 100, 50, 20)
+{
+	std::cout << "ScavTrap setName constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& trap):ClapTrap(trap.getName())
@@ -46,15 +48,15 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& trap)
 
 void	ScavTrap::attack(std::string const &target)
 {
-	if (getEnergyPoints() <= 0)
+	if (getEnergyPoints() <= 0 || getHitpoints() <= 0)
 	{
 		std::cout << "ScavTrap " << getName()
-		<< " hasn't any energy points" << std::endl;
+		<< " is too weak to attack" << std::endl;
 	}
 	else
 	{
 		decreaseEnergyPoints();
-		std::cout << "FragTrap " << getName() << " attack " << target
+		std::cout << "ScavTrap " << getName() << " attack " << target
 		<< ", causing " << getAttackDamage() << " points of damage !"
 		<< std::endl;
 	}
@@ -62,7 +64,7 @@ void	ScavTrap::attack(std::string const &target)
 
 void	ScavTrap::guardGate(void)
 {
-	if (this->getEnergyPoints() <= 0)
+	if (this->getEnergyPoints() <= 0 || getHitpoints() <= 0)
 	{
 		std::cout << "ScavTrap " << this->getName()
 		<< " cannot use Gate" << std::endl;

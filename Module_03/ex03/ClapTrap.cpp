@@ -6,19 +6,29 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:11:49 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 16:11:15 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 12:57:25 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(void) : _name("claper"), _hitpoints(10), _energy_points(10),
+		_attack_damage(0)
 {
 	std::cout << "ClapTrap default constructor called" << std::endl;
-	this->_name = name;
-	this->_hitpoints = 10;
-	this->_energy_points = 10;
-	this->_attack_damage = 0;
+}
+
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitpoints(10), _energy_points(10),
+		_attack_damage(0)
+{
+	std::cout << "ClapTrap setName constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, unsigned int hitpoints, unsigned int energy_points,
+		unsigned int attack_damage) : _name(name), _hitpoints(hitpoints), 	
+		_energy_points(energy_points), _attack_damage(attack_damage)
+{
+	std::cout << "ClapTrap setParam constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& trap)
@@ -47,10 +57,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& trap)
 
 void	ClapTrap::attack(std::string const &target)
 {
-	if (this->_energy_points <= 0)
+	if (this->_energy_points <= 0 || this->_hitpoints <= 0)
 	{
 		std::cout << "ClapTrap " << this->getName()
-		<< " is too weak to attack" << std::endl;
+		<< "is too weak to repair" << std::endl;
 	}
 	else
 	{
@@ -73,7 +83,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (this->_energy_points <= 0)
 	{
 		std::cout << "ClapTrap " << this->getName()
-		<< "is too weak to attack" << std::endl;
+		<< "is too weak to repair" << std::endl;
 	}
 	else
 	{

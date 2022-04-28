@@ -6,18 +6,20 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 11:53:15 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 16:59:18 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 13:06:31 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name):ClapTrap(name)
+FragTrap::FragTrap(void): ClapTrap("frager", 100, 100, 30)
 {
-	std::cout << "FragTrap default constructor called" << std::endl;
-	this->setHitpoints(100);
-	this->setEnergyPoints(100);
-	this->setAttackDamage(30);
+	std::cout << "FragTrap default destructor called" << std::endl;
+}
+
+FragTrap::FragTrap(std::string name):ClapTrap(name, 100, 100, 30)
+{
+	std::cout << "FragTrap setName constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& trap):ClapTrap(trap.getName())
@@ -45,7 +47,7 @@ FragTrap	FragTrap::operator=(const FragTrap& trap)
 
 void	FragTrap::attack(std::string const &target)
 {
-	if (getEnergyPoints() <= 0)
+	if (getEnergyPoints() <= 0 || getHitpoints() <= 0)
 	{
 		std::cout << "FragTrap " << getName()
 		<< " cannot attack for now" << std::endl;
@@ -61,7 +63,7 @@ void	FragTrap::attack(std::string const &target)
 
 void	FragTrap::highFivesGuys(void)
 {
-	if (this->getEnergyPoints() <= 0)
+	if (this->getEnergyPoints() <= 0 || this->getHitpoints() <= 0)
 	{
 		std::cout << "FragTrap " << this->getName()
 		<< " cannot ask for a high five" << std::endl;

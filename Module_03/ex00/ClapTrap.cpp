@@ -6,11 +6,17 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:11:49 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 10:37:32 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 12:52:16 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(void) : _name("claper"), _hitpoints(10), _energy_points(10),
+		_attack_damage(0)
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -47,7 +53,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& trap)
 
 void	ClapTrap::attack(std::string const &target)
 {
-	if (this->_energy_points <= 0)
+	if (this->_energy_points <= 0 || this->_hitpoints <= 0)
 	{
 		std::cout << "ClapTrap " << this->getName()
 		<< "is too weak to attack" << std::endl;
@@ -65,7 +71,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "ClapTrap " << this->_name << " takes " << amount
 		<< " amounts of damage !" << std::endl;
-	this->_hitpoints -= amount;
+	if (this->_hitpoints <= amount)
+		this->_hitpoints = 0;
+	else
+		this->_hitpoints -= amount;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -73,7 +82,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (this->_energy_points <= 0)
 	{
 		std::cout << "ClapTrap " << this->getName()
-		<< "is too weak to attack" << std::endl;
+		<< "is too weak to repair" << std::endl;
 	}
 	else
 	{

@@ -3,6 +3,7 @@
 int	main(void)
 {
 	MutantStack<std::string>	stk;
+	std::vector<int, >	vec;
 
 	stk.push("Hello");
 	stk.push("World");

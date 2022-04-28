@@ -38,13 +38,13 @@ MutantStack<T>::~MutantStack(void)
 	std::cout << "MutantStack destructor called" << std::endl;
 }
 
-template <typename T>
+/*template <typename T>
 typename MutantStack<T>::iterator	MutantStack<T>::begin(void)
 {
 	return ();
 }
 
-/*template <typename T>
+template <typename T>
 MutantStack<T>&	MutantStack::operator=(const MutantStack& ymir)
 {
 	std::cout << "MutantStack copy assignement constructor called" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:55:54 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/21 17:07:58 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/28 12:55:24 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define SCAVTRAP_H
 # include "ClapTrap.hpp"
 
-class	ScavTrap : virtual public ClapTrap
+class	ScavTrap : public ClapTrap
 {
 	public:
+		ScavTrap(void);
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap&);
 		~ScavTrap(void);

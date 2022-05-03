@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:01:30 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/28 13:03:28 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/03 16:00:13 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ class	FragTrap : public ClapTrap
 		void	attack(const std::string&);
 		void	highFivesGuys(void);
 };
-std::ostream& operator<<(std::ostream& os, const FragTrap&);
 #endif

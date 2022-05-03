@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 10:55:54 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/28 13:10:46 by abrun            ###   ########.fr       */
+/*   Created: 2022/04/28 17:11:50 by abrun             #+#    #+#             */
+/*   Updated: 2022/05/03 15:59:57 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ class	ScavTrap : virtual public ClapTrap
 		void	attack(const std::string&);
 		void	guardGate(void);
 };
-std::ostream& operator<<(std::ostream& os, const ScavTrap&);
 #endif

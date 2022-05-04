@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:55:46 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/23 14:02:10 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/04 16:06:14 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define DOG_HPP
 #include "Animal.hpp"
 
-class	Dog : virtual public Animal
+class	Dog : public Animal
 {
 	public:
 		Dog(void);
 		Dog(const Dog&);
-		~Dog(void);
+		virtual	~Dog(void);
 		Dog&	operator=(const Dog&);
 		virtual void	makeSound(void) const;
 };

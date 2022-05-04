@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:53:08 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/27 12:21:04 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/04 16:04:32 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main()
 	const Animal* meta = new Animal();
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
-	const WrongCat* wrongCat = new WrongCat();
+	const WrongAnimal* wrongCat = new WrongCat();
 
 	std::cout << dog->getType() << std::endl;
 	std::cout << cat->getType() << std::endl;

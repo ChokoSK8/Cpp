@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:11:26 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 19:05:57 by abrun            ###   ########.fr       */
+/*   Updated: 2022/04/20 16:58:50 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@
 class ShrubberyCreationForm : virtual public Form
 {
 	private:
-		int	_exec;
-		int	_sign;
-		std::string	_target;
 		std::string	_tree;
 
 	public:
+		ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string _target);
+		ShrubberyCreationForm(const ShrubberyCreationForm&);
 		~ShrubberyCreationForm(void) throw();
-		int	checkExecGrade(int execGrade) const;
+		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm&);
+		std::string	getTree(void) const;
 		void	execAction(void) const;
-		static Form*	createForm(std::string);
 };
-#endif		
+
+std::ostream&	operator<<(std::ostream& os, const ShrubberyCreationForm&);
+#endif

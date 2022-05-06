@@ -1,30 +1,34 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 17:05:44 by abrun             #+#    #+#             */
-/*   Updated: 2021/12/05 19:06:48 by abrun            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef INTERN_HPP
 # define INTERN_HPP
+# include <string>
+# include <iostream>
 # include "Form.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
-typedef Form*	(*pif)(std::string);
+class	Intern;
+
+typedef struct	s_fctptr
+{
+	std::string	_name;
+	Form*	(Intern::*_fct)(const std::string);
+}		t_fctptr;
 
 class	Intern
 {
 	private:
-		std::string	_form[3];
-		pif			_pf[3];
+		struct s_fctptr	_fcts[3];
 
 	public:
 		Intern(void);
+		Intern(const Intern&);
 		~Intern(void);
-		Form*	makeForm(std::string form, std::string target);
+		Intern &operator=(const Intern&);
+		Form*	makeForm(const std::string, std::string);
+		Form*	makePres(std::string);
+		Form*	makeRobo(std::string);
+		Form*	makeShru(std::string);
 };
+
 #endif

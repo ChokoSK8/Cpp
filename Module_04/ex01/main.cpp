@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:53:08 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/23 14:42:49 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/04 15:55:01 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main()
 
 	cat_1.setBrain(0, "AAAAAAHHHHHHHH");
 	cat_2 = cat_1;
+	cat_1.setBrain(2, "OOOOOUUUHHH");
 	cat_1.displayBrain();
 	cat_2.displayBrain();
 

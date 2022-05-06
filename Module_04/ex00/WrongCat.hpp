@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:18:04 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/23 14:03:25 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/04 16:05:34 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define WRONGCAT_HPP
 # include "WrongAnimal.hpp"
 
-class	WrongCat : virtual public WrongAnimal
+class	WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat(void);
 		WrongCat(const WrongCat&);
-		virtual ~WrongCat(void);
+		~WrongCat(void);
 		WrongCat&	operator=(const WrongCat&);
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 };
 #endif

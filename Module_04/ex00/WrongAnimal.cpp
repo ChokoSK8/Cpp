@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:14:11 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/23 14:03:38 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/04 16:04:50 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& ymir)
 
 void	WrongAnimal::makeSound(void) const
 {
-	if (getType() == "Cat")
-		this->makeSound();
-	else
-		std::cout << "Grrrrrrrrrrr" << std::endl;
+	std::cout << "Blublublublu" << std::endl;
 }
 
 std::string	WrongAnimal::getType(void) const

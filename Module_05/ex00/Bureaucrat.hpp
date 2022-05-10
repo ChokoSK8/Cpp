@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 09:59:37 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/24 16:35:11 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/10 11:52:39 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class	Bureaucrat : public std::exception
 {
 	private:
-		std::string	_name;
-		int		_grade;
+		const std::string	_name;
+		int			_grade;
 
 	public:
 		Bureaucrat(void);

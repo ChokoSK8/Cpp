@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:28:16 by abrun             #+#    #+#             */
-/*   Updated: 2022/04/21 13:22:47 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/10 12:09:37 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main()
 	Howe->executeForm(*Bernadette);
 	delete Bernadette;
 
-	std::cout << "\n\n   --------------Robotomy tests--------------\n" << std::endl;
+	std::cout << "\n\n   --------------Presidential tests--------------\n" << std::endl;
 
 	PresidentialPardonForm	*Amy = new PresidentialPardonForm("Amy");
 

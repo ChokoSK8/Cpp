@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:28:16 by abrun             #+#    #+#             */
-/*   Updated: 2022/02/24 16:19:52 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/10 11:51:55 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main()
 {
 	Bureaucrat	*Sheldon = new Bureaucrat("Sheldon", 3);
 	Bureaucrat	*Howard = new Bureaucrat("Howard", 152);
+	Bureaucrat	Rajesh = *Howard;
 
 	std::cout << *Sheldon << std::endl;
 	std::cout << *Howard << std::endl;
@@ -24,6 +25,7 @@ int		main()
 	Howard->decreaseGrade();
 	std::cout << *Sheldon << std::endl;
 	std::cout << *Howard << std::endl;
+	std::cout << Rajesh << std::endl;
 	Sheldon->increaseGrade();
 	Sheldon->increaseGrade();
 	Sheldon->increaseGrade();

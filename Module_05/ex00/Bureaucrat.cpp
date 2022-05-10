@@ -6,25 +6,23 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 10:18:05 by abrun             #+#    #+#             */
-/*   Updated: 2022/03/07 10:05:13 by abrun            ###   ########.fr       */
+/*   Updated: 2022/05/10 11:52:36 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void): _name("Burn")
 {
 	std::cout << "Bureaucrat default constructor called" << std::endl;
-	_name = "Antoine";
 	_grade = 150;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name)
 {
 	std::cout << "Bureaucrat setParam constructor called" << std::endl;
 	try
 	{
-		_name = name;
 		_grade = grade;
 		checkGrade();
 	}
@@ -34,12 +32,11 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& ymir)
+Bureaucrat::Bureaucrat(const Bureaucrat& ymir):_name(ymir.getName())
 {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	try
 	{
-		_name = ymir.getName();
 		_grade = ymir.getGrade();
 		checkGrade();
 	}
@@ -57,17 +54,16 @@ Bureaucrat::~Bureaucrat(void) throw()
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ymir)
 {
 	std::cout << "Bureaucrat copy assignment constructor called" << std::endl;
+	Bureaucrat	*n = new Bureaucrat(ymir);
 	try
 	{
-		_name = ymir.getName();
-		_grade = ymir.getGrade();
-		checkGrade();
+		n->checkGrade();
 	}
 	catch (std::exception const& e)
 	{
 		std::cout << "ERREUR : " << e.what() << std::endl;
 	}
-	return (*this);
+	return (*n);
 }
 
 const char*	Bureaucrat::GradeTooHighException::what(void) const throw()

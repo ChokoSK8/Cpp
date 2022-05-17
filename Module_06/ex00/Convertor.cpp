@@ -100,15 +100,15 @@ void	Convertor::fillToChar(std::string arg)
 	_toChar = static_cast<char>(arg[0]);
 	_toInt = static_cast<int>(_toChar + 48);
 	_toFloat = static_cast<float>(_toChar + 48);
-	_toDouble = static_cast<float>(_toChar + 48);
+	_toDouble = static_cast<double>(_toChar + 48);
 }
 
 void	Convertor::fillToDouble(std::string arg)
 {
 	if (arg == "nan")
 		_toDouble = std::numeric_limits<double>::quiet_NaN();
-	else if (arg == "+inff" || arg == "-inff")
-		_toFloat = std::numeric_limits<float>::infinity();
+	else if (arg == "+inf" || arg == "inf" || arg == "-inf")
+		_toDouble = std::numeric_limits<float>::infinity() * (arg == "-inf" ? -1 : 1);
 	else
 		std::stringstream(arg) >> _toDouble;
 	_toChar = static_cast<char>(_toDouble);
@@ -120,8 +120,8 @@ void	Convertor::fillToFloat(std::string arg)
 {
 	if (arg == "nanf")
 		_toFloat = std::numeric_limits<float>::quiet_NaN();
-	else if (arg == "+inff" || arg == "-inff")
-		_toFloat = std::numeric_limits<float>::infinity();
+	else if (arg == "+inff" || arg == "inff" || arg == "-inff")
+		_toFloat = std::numeric_limits<float>::infinity() * (arg == "-inff" ? -1 : 1);
 	else
 		std::stringstream(arg) >> _toFloat;
 	_toChar = static_cast<char>(_toFloat);
@@ -148,7 +148,7 @@ std::ostream&	operator<<(std::ostream& os, const Convertor& conv)
 		os << "impossible";
 	else
 		os << "undisplayable";
-	if (type == "floatSpe" || type == "doubleSpe")
+	if (type == "floatSpe" || type == "doubleSpe" || conv.getToDouble() < -2147483648.0 || conv.getToDouble() > 2147483647.0)
 		os << "\nint : impossible"; 
 	else
 		os <<  "\nint : " << conv.getToInt();

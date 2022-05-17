@@ -23,14 +23,22 @@ std::string	checkIfInt(std::string arg)
 std::string	checkIfDouble(std::string arg)
 {
 	size_t	pos;
+	size_t	wit;
+	size_t	sign;
 	long double	n;
 
-	if (arg == "nan" || arg == "-inf" || arg == "+inf")
+	if (arg == "nan" || arg == "-inf" || arg == "inf" || arg == "+inf")
 		return ("doubleSpe");
-	pos = arg.find_first_of(".");
-	if (pos == 0 || pos == std::string::npos)
+	if (arg.find_first_of("0123456789") == std::string::npos)
 		return ("");
-	if (arg.find_first_not_of("0123456789", pos + 1) == std::string::npos)
+	sign = arg.find_first_not_of("+-");
+	pos = arg.find_first_of(".");
+	wit = arg.find_first_not_of("0123456789", sign);
+	if (pos != wit)
+		return ("");
+	if (pos == std::string::npos)
+		pos = 0;
+	if (arg.find_first_not_of("0123456789", pos + (pos || sign ? 1 : 0)) == std::string::npos)
 	{
 		std::stringstream(arg) >> n;
 		if (n <= std::numeric_limits<double>::max()
@@ -43,14 +51,22 @@ std::string	checkIfDouble(std::string arg)
 std::string	checkIfFloat(std::string arg)
 {
 	size_t	pos;
-	long double	n;
+	size_t	wit;
+	size_t	sign;
+	long long	n;
 
-	if (arg == "nanf" || arg == "-inff" || arg == "+inff")
+	if (arg == "nanf" || arg == "-inff" || arg == "inff" || arg == "+inff")
 		return ("floatSpe");
-	pos = arg.find_first_of(".");
-	if (pos == 0)
+	if (arg.find_first_of("0123456789") == std::string::npos)
 		return ("");
-	if (arg.find_first_not_of("0123456789", pos + 1) == arg.length() - 1
+	sign = arg.find_first_not_of("+-");
+	pos = arg.find_first_of(".");
+	wit = arg.find_first_not_of("0123456789", sign);
+	if (arg.find_first_of(".f") != wit)
+		return ("");
+	else if (pos == std::string::npos)
+		pos = 0;
+	if (arg.find_first_not_of("0123456789", pos + (pos || sign ? 1 : 0)) == arg.length() - 1
 		&& arg.find_first_of("f") == arg.length() - 1)
 	{
 		std::stringstream(arg) >> n;
@@ -79,11 +95,11 @@ std::string	getConvertedType(std::string arg)
 
 	type = checkIfInt(arg);
 	if (!type.length())
+		type = checkIfChar(arg);
+	if (!type.length())
 		type = checkIfDouble(arg);
 	if (!type.length())
 		type = checkIfFloat(arg);
-	if (!type.length())
-		type = checkIfChar(arg);
 	if (!type.length())
 		type = "none";
 	return (type);

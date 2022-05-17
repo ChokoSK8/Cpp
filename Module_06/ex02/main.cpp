@@ -3,15 +3,15 @@
 # include "B.hpp"
 # include "C.hpp"
 # include <exception>
+# include <cstdlib>
 
 Base*	generate(void)
 {
 	int	i;
-	time_t	t;
 	Base*	basee = NULL;
 
-	time(&t);
-	i = (int)difftime(t, 0) % 3;
+	srand(time(0));
+	i = (int)rand() % 3;
 	if (i == 1)
 		basee = new A;
 	else if (i == 2)

@@ -17,7 +17,7 @@ class	Array
 		Array(const Array&);
 		~Array(void);
 		Array	&operator=(const Array&);
-		T	&operator[](unsigned int) const;
+		T	&operator[](unsigned int);
 		unsigned int	size(void) const;
 };
 
@@ -70,7 +70,7 @@ Array<T>&	Array<T>::operator=(const Array<T>& ymir)
 }
 
 template <typename T>
-T&	Array<T>::operator[](unsigned int i) const
+T&	Array<T>::operator[](unsigned int i)
 {
 	if (i < 0 || i >= size())
 		throw std::out_of_range("SEGFAULT");
@@ -84,7 +84,7 @@ unsigned int	Array<T>::size(void) const
 }
 
 template <typename T>
-std::ostream& operator<<(std::ostream& os, const Array<T>& tab)
+std::ostream& operator<<(std::ostream& os, Array<T>& tab)
 {
         unsigned int	size = tab.size();
 

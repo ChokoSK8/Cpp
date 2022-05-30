@@ -50,6 +50,5 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
-    Array<int> numbers(0);
     return 0;
 }

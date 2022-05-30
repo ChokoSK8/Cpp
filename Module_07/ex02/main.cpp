@@ -28,7 +28,6 @@ int main(int, char**)
             return 1;
         }
     }
-    std::cout << "HEY" << std::endl;
     try
     {
         numbers[-2] = 0;
@@ -37,7 +36,6 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-    std::cout << "HEY" << std::endl;
     try
     {
         numbers[MAX_VAL] = 0;
@@ -52,5 +50,6 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;//
+    Array<int> numbers(0);
     return 0;
 }

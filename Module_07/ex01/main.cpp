@@ -1,8 +1,16 @@
 # include "iter.h"
 
-void	display(std::string str)
+template <typename T>
+void	display(T str)
 {
 	std::cout << str << std::endl;
+}
+
+template <typename T>
+void	iter(T* tab, int size, void (*fct)(T))
+{
+	for (int i = 0; i < size; i++)
+		fct(tab[i]);
 }
 
 int	main(void)

@@ -5,8 +5,12 @@ Span::Span(void) : _size(0), _maxSize(0)
 	std::cout << "Span default constructor called" << std::endl;
 }
 
-Span::Span(unsigned int n) : _size(0), _maxSize(n)
+Span::Span(int n) : _size(0)
 {
+	if (n < 0)
+		_maxSize = 0;
+	else
+		_maxSize = n;
 	std::cout << "Span setParam constructor called" << std::endl;
 }
 
@@ -44,7 +48,8 @@ std::vector<int>	Span::getTab(void) const
 {
 	return (_tab);
 }
-void	Span::addNumber(unsigned int n)
+
+void	Span::addNumber(int n)
 {
 	try
 	{
@@ -60,51 +65,50 @@ void	Span::addNumber(unsigned int n)
 	}
 }
 
+void	Span::addNumbers(int n)
+{
+	try
+	{
+		if (n <= 0)
+			throw std::out_of_range("YOU'HE ENTERED A NEGATIVE PARAMETER");
+		if (_size + n > _maxSize)
+			throw std::out_of_range("YOU CAN'T ADD NUMBERS ANYMORE");
+		srand(time(NULL));
+		for (int j = 0; j < n; j++) 
+			addNumber(rand());
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "ERROR : " << e.what() << std::endl;
+	}
+}
+
 unsigned int	Span::shortestSpan(void)
 {
 	unsigned int	shortest = std::numeric_limits<unsigned int>::max();
 	unsigned int	diff;
+	Span	copy(*this);
 
-	try
+	if (_size < 2)
+		throw SizeTooSmall();
+	std::sort (copy._tab.begin(), copy._tab.end());
+	copy.displaySpan();
+	for(std::vector<int>::iterator it = copy._tab.begin(); it < copy._tab.end() - 1; it++)
 	{
-		if (_size < 2)
-			throw SizeTooSmall();
-		for(std::vector<int>::iterator it = _tab.begin(); it < _tab.end() - 1; it++)
-		{
-			for(std::vector<int>::iterator jt = it + 1; jt < _tab.end(); jt++)
-			{
-				diff = dist(*it, *jt);
-				shortest = ft_min(shortest, diff);
-			}
-		}
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "ERREUR : " << e.what() << std::endl;
+		diff = dist(*it, *(it + 1));
+		shortest = ft_min(shortest, diff);
 	}
 	return (shortest);
 }
 
 unsigned int	Span::longestSpan(void)
 {
-	int	max = std::numeric_limits<int>::min();
-	int	min = std::numeric_limits<int>::max();
+	Span	copy(*this);
 
-	try
-	{
-		for(std::vector<int>::iterator it = _tab.begin(); it < _tab.end(); it++)
-		{
-			if (*it > max)
-				max = *it;
-			if (*it < min)
-				min = *it;
-		}
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "ERREUR : " << e.what() << std::endl;
-	}
-	return (max - min);
+	if (_size < 2)
+		throw SizeTooSmall();
+	std::sort (copy._tab.begin(), copy._tab.end());
+	return (*(copy._tab.end() - 1) - *(copy._tab.begin()));
 }
 
 const char*	Span::SizeTooSmall::what(void) const throw()
@@ -130,4 +134,12 @@ unsigned int	dist(int a, int b)
 	if (dist < 0)
 		return (-dist);
 	return (dist);
+}
+
+void	Span::displaySpan(void) const
+{
+	std::cout << "myvector contains:";
+  	for (std::vector<int>::const_iterator it=_tab.begin(); it!=_tab.end(); ++it)
+		std::cout << ' ' << *it;
+	std::cout << '\n';
 }

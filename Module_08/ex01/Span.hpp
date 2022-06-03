@@ -5,6 +5,7 @@
 # include <exception>
 # include <limits>
 # include <vector>
+# include <algorithm>
 
 class	Span
 {
@@ -15,16 +16,18 @@ class	Span
 
 	public:
 		Span(void);
-		Span(unsigned int);
+		Span(int);
 		Span(const Span&);
 		~Span(void);
 		Span &operator=(const Span&);
-		void	addNumber(unsigned int);
+		void	addNumber(int);
+		void	addNumbers(int);
 		unsigned int	getSize(void) const;
 		unsigned int	getMaxSize(void) const;
 		std::vector<int>	getTab(void) const;
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
+		void		displaySpan(void) const;
 
 		class	SizeTooSmall : virtual public std::exception
 		{

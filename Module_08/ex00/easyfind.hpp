@@ -8,16 +8,14 @@
 # include <iomanip>
 # include <deque>
 # include <list>
+# include <algorithm>
 
 template <typename T>
 typename T::iterator	easyfind(T& sequence, int n)
 {
 	typename T::iterator it;
-	for(it = sequence.begin(); it != sequence.end(); it++)
-	{
-		if (*it == n)
-			break;
-	}
+	
+	it = find_first_of(sequence.begin(), sequence.end(), &n, &n + 1);
 	if (it == sequence.end())
 		throw std::out_of_range("NOT FIND");
 	else
